@@ -1,0 +1,213 @@
+# ГОСТ rules — машиночитаемое дерево правил ЕСКД для чертежей болтов
+# Версия: v6 (после iter7, msgId 1009)
+# Каждое правило имеет:
+#   id: vt.NN или c.NN — уникальный ключ
+#   category: stroke | dimension | layout | structure | numeric | label | iso
+#   description: человекочитаемое описание
+#   predicate: машиночитаемый ID проверки (для Python)
+#   threshold: число / объект для сравнения
+#   source: ГОСТ или Даня-фидбек
+#
+# Этот файл — источник истины для eskd_check.py.
+# Добавляй новые правила сюда; валидатор должен их подхватывать.
+
+version: 6
+bolt_pipeline_validated_through: iter7_msgId_1009
+
+# ============================================================================
+# C-блок: визуальные правила ЕСКД (vt.0..vt.7 — Даня feedback, msgId 962/978/992)
+# ============================================================================
+visual:
+  - id: C-01
+    category: stroke
+    description: "Толщины штрихов строго из {1, 2.4, 3.6}"
+    predicate: stroke_width_allowed
+    threshold: [1, 2.4, 3.6]
+    source: "ГОСТ 2.303-68"
+
+  - id: C-02
+    category: stroke
+    description: "Цвета — только #1A1A18 для штрихов; заливки — только none / url(#ht) / #FFFFFF"
+    predicate: colors_allowed
+    threshold:
+      stroke: ["#1A1A18"]
+      fill: ["none", "url(#ht)", "#FFFFFF", "#1A1A18"]
+    source: "ГОСТ 2.303-68"
+
+  - id: C-03
+    category: stroke
+    description: "Осевая линия — штрихпунктир 24 5 3 5"
+    predicate: axis_pattern_present
+    threshold: "24 5 3 5"
+    source: "ГОСТ 2.303-68 (тип линии 'осевая')"
+
+  - id: C-04
+    category: dimension
+    description: "Выносные линии 3-6 px"
+    predicate: extension_length_in_range
+    threshold: [3, 6]
+    source: "ГОСТ 2.307-68"
+
+  - id: C-05
+    category: label
+    description: "Marker для стрелок определён (#ar)"
+    predicate: marker_ar_defined
+    source: "ГОСТ 2.307-68"
+
+  - id: C-06
+    category: layout
+    description: "Текстовые bbox не пересекают линии"
+    predicate: text_bbox_no_intersection
+    source: "ГОСТ 2.307-68"
+
+  - id: C-07
+    category: dimension
+    description: "Размерные расстояния ≥30 (первая), ≥21 (каждая следующая)"
+    predicate: dim_distances
+    threshold: {first: 30, step: 21}
+    source: "ГОСТ 2.307-68 + Даня vt.7/vt.11"
+
+  - id: C-08
+    category: label
+    description: "Нет «мм» в тексте; нет запятых в размерных числах"
+    predicate: no_mm_no_comma
+    source: "ГОСТ 2.307-68 + Даня feedback"
+
+  - id: C-09
+    category: structure
+    description: "Штриховка 45° шаг 9 px"
+    predicate: hatch_pattern_45
+    threshold: {angle: 45, step: 9}
+    source: "ГОСТ 2.306-68"
+
+  - id: C-10
+    category: structure
+    description: "Резьба: vpadiny на 0.85·d, граница толстая"
+    predicate: thread_ratio
+    threshold: {vpadiny_factor: 0.85, boundary_w: 2.4}
+    source: "ГОСТ 2.311-68"
+
+  - id: C-11
+    category: structure
+    description: "Проекционное равенство видов"
+    predicate: projection_equality
+    source: "ГОСТ 2.305-68"
+
+  - id: C-12
+    category: structure
+    description: "Нет scale() в transform"
+    predicate: no_scale_in_transform
+    source: "Даня C-12"
+
+# ============================================================================
+# STRUCT-блок: msgId 962 (структурные проверки)
+# ============================================================================
+structure:
+  - id: STRUCT-01
+    category: structure
+    description: "Замкнутых path ≥ 2 (head + shaft + iso head + iso shaft)"
+    predicate: closed_path_count
+    threshold: {min: 2}
+    source: "Даня feedback msgId 962"
+
+  - id: STRUCT-02
+    category: structure
+    description: "Толстых вертикалей (stroke-width=2.4) ≥ 3 (граница резьбы + стороны контура)"
+    predicate: thick_vert_count
+    threshold: {min: 3}
+    source: "Даня feedback msgId 962"
+
+  - id: STRUCT-03
+    category: structure
+    description: "Тонких горизонталей (stroke-width=1) ≥ 8 (вероятно впадины резьбы)"
+    predicate: thin_horiz_count
+    threshold: {min: 8}
+    source: "Даня feedback msgId 962"
+
+  - id: STRUCT-04
+    category: structure
+    description: "Шестигранник с fill='none' и 6 вершин (вид слева)"
+    predicate: hexagon_no_fill_6verts
+    threshold: {fill: "none", verts: 6}
+    source: "Даня feedback msgId 962"
+
+  - id: STRUCT-05
+    category: structure
+    description: "Окружность фаски с fill='none' (вид слева)"
+    predicate: circle_no_fill
+    threshold: {fill: "none"}
+    source: "Даня feedback msgId 962"
+
+# ============================================================================
+# NUM-блок: msgId 992 vt.10 (численная самопроверка)
+# ============================================================================
+numeric:
+  - id: NUM-01
+    category: numeric
+    description: "≥ 1 пары симметричных толстых горизонталей (|y_top|==|y_bottom| образующих)"
+    predicate: symmetric_thick_horiz_pairs
+    threshold: {min_pairs: 1}
+    source: "Даня feedback msgId 992, vt.10"
+
+# ============================================================================
+# ISO-блок: msgId 1009 v5/vt.16 (самопроверка аксонометрии)
+# ============================================================================
+iso:
+  - id: ISO-01
+    category: iso
+    description: "В аксонометрии ровно 2 polygon (силуэт + шестигранник)"
+    predicate: iso_polys_count
+    threshold: {count: 2}
+    source: "Даня feedback msgId 1009"
+
+  - id: ISO-02
+    category: iso
+    description: "В аксонометрии ровно 1 ellipse (фаска)"
+    predicate: iso_ellipses_count
+    threshold: {count: 1}
+    source: "Даня feedback msgId 1009"
+
+  - id: ISO-03
+    category: iso
+    description: "В аксонометрии 2 ребра (горизонтальные толстые)"
+    predicate: iso_edges_count
+    threshold: {count: 2}
+    source: "Даня feedback msgId 1009"
+
+  - id: ISO-04
+    category: iso
+    description: "Стержень одним path с белой заливкой"
+    predicate: iso_shaft_white_path
+    threshold: {min: 1}
+    source: "Даня feedback msgId 1009"
+
+  - id: ISO-05
+    category: iso
+    description: "Образующие стержня параллельны (|y_top|==|y_bottom|)"
+    predicate: shaft_sides_parallel
+    threshold: {tolerance: 0.1}
+    source: "Даня feedback msgId 1009, vt.16"
+
+  - id: ISO-06
+    category: iso
+    description: "Лишних прямоугольников/пятиугольников в iso нет"
+    predicate: no_extra_quads_in_iso
+    source: "Даня feedback msgId 1009, vt.16"
+
+# ============================================================================
+# Глобальные пороги перцептуального валидатора (Track 1)
+# ============================================================================
+perceptual:
+  - id: P-01
+    category: perceptual
+    description: "SSIM ≥ 0.75 vs эталон того же размера"
+    predicate: ssim_above
+    threshold: 0.75
+    source: "Track 1 — perceptual validator"
+
+  - id: P-02
+    category: perceptual
+    description: "phash хэмминг ≤ 12 vs эталон того же размера"
+    predicate: phash_hamming_below
+    threshold: 12
+    source: "Track 1 — perceptual validator"

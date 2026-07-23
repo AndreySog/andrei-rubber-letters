@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Мёбиус-узел — Идеи Андрея</title>
+<meta name="description" content="Мёбиус-лента как несущая конструкция + катушки + магниты. Топология + электромагнетизм.">
+<link rel="stylesheet" href="../assets/css/main.css">
+<link rel="stylesheet" href="../assets/css/lock.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-corners"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">// IDEA · 01 · LIVE</div>
+    <h1 class="h1-page">Мёбиус-<span class="accent">узел</span></h1>
+    <p class="subtitle">Лента Мёбиуса как несущая конструкция + катушки возбуждения + постоянные магниты. Хиральный EM-ответ, сниженная самоиндукция.</p>
+
+    <div class="meta-bar">
+      <span class="meta-chip">Топология</span>
+      <span class="meta-chip">Электроника</span>
+      <span class="meta-chip">R&amp;D</span>
+      <span class="meta-chip">updated 09:28 EDT</span>
+    </div>
+  </div>
+</header>
+
+<nav class="quick-nav">
+  <a href="../index.html">← назад</a>
+  <a href="#concept">концепт</a>
+  <a href="#schematic">схема</a>
+  <a href="#next">что дальше</a>
+  <a href="https://github.com/AndreySog/andrei-ideas-site" target="_blank" rel="noopener">github ↗</a>
+</nav>
+
+<main>
+
+<section id="concept">
+  <h2><span class="num">01</span> Концепт</h2>
+  <div class="prose">
+    <p>Обычный Мёбиус — односторонняя лента, открытая в 3D-пространстве. Здесь она становится <strong>несущей рамой</strong>: на ней крепятся катушки, магниты, обмотки. Топология ленты не меняется, но меняется физика сборки.</p>
+
+    <p><strong>Предсказанные / частично измеренные в литературе эффекты:</strong></p>
+    <ul>
+      <li><strong>Не-реципрокные моды</strong> — разное поведение для CW и CCW-волн.</li>
+      <li><strong>Сниженная самоиндукция</strong> относительно обычной катушки той же геометрии (Davis, US 3,267,406).</li>
+      <li><strong>Хиральный EM-ответ</strong> — асимметрия отражения / поглощения.</li>
+      <li><strong>Единая несущая поверхность</strong> — нет «внутренней» и «внешней» стороны для обмоток.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="schematic">
+  <h2><span class="num">02</span> Схема</h2>
+  <div class="stage">
+    <button class="stage-expand" aria-label="На весь экран">⛶ fullscreen</button>
+    <svg viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg" width="600" height="320">
+      <defs>
+        <pattern id="grid2" width="20" height="20" patternUnits="userSpaceOnUse">
+          <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e5e7eb" stroke-width="0.5"/>
+        </pattern>
+      </defs>
+      <rect width="600" height="320" fill="url(#grid2)"/>
+
+      <!-- title strip -->
+      <rect x="20" y="15" width="120" height="20" fill="#1f2937"/>
+      <text x="80" y="29" text-anchor="middle" font-family="monospace"
+            font-size="11" fill="#d9e2ee">FIG · SCHEMATIC·01</text>
+
+      <!-- Möbius strip front face -->
+      <path d="M 80 170 C 140 70, 250 70, 300 170 C 350 270, 460 270, 520 170"
+            fill="none" stroke="#1f2937" stroke-width="16" stroke-linecap="round"/>
+
+      <!-- Möbius strip back face -->
+      <path d="M 80 170 C 140 270, 250 270, 300 170 C 350 70, 460 70, 520 170"
+            fill="none" stroke="#1f2937" stroke-width="16" stroke-linecap="round" stroke-dasharray="2,5" opacity="0.55"/>
+
+      <!-- Twist marker -->
+      <circle cx="300" cy="170" r="24" fill="#f48c2e"/>
+      <text x="300" y="175" text-anchor="middle" font-family="Arial, sans-serif"
+            font-size="14" font-weight="bold" fill="#0e1116">τ</text>
+
+      <!-- Coils with labels -->
+      <g stroke="#4cc9f0" stroke-width="2.5" fill="none">
+        <ellipse cx="170" cy="138" rx="22" ry="10" transform="rotate(-25 170 138)"/>
+        <ellipse cx="170" cy="202" rx="22" ry="10" transform="rotate(-25 170 202)"/>
+        <ellipse cx="430" cy="138" rx="22" ry="10" transform="rotate(25 430 138)"/>
+        <ellipse cx="430" cy="202" rx="22" ry="10" transform="rotate(25 430 202)"/>
+      </g>
+
+      <!-- Magnets -->
+      <g fill="#58e878">
+        <rect x="240" y="76" width="16" height="24" rx="2"/>
+        <rect x="346" y="76" width="16" height="24" rx="2"/>
+        <rect x="240" y="240" width="16" height="24" rx="2"/>
+        <rect x="346" y="240" width="16" height="24" rx="2"/>
+      </g>
+
+      <!-- Field arrows -->
+      <g stroke="#7d8b9c" stroke-width="1" fill="none" marker-end="url(#arr-end)">
+        <defs>
+          <marker id="arr-end" viewBox="0 0 10 10" refX="9" refY="5"
+                  markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#7d8b9c"/>
+          </marker>
+        </defs>
+        <path d="M 248 110 L 248 130"/>
+        <path d="M 354 110 L 354 130"/>
+        <path d="M 248 230 L 248 210"/>
+        <path d="M 354 230 L 354 210"/>
+      </g>
+
+      <!-- Labels -->
+      <g font-family="Arial, sans-serif" font-size="11" fill="#1f2937">
+        <text x="170" y="118" text-anchor="middle">катушка L₁</text>
+        <text x="430" y="118" text-anchor="middle">катушка L₂</text>
+        <text x="248" y="68" text-anchor="middle">NdFeB</text>
+        <text x="354" y="68" text-anchor="middle">NdFeB</text>
+        <text x="300" y="305" text-anchor="middle">лента Мёбиуса · τ = twist</text>
+      </g>
+    </svg>
+  </div>
+  <div class="note">
+    <strong>Примечание:</strong> упрощённая схема для визуализации топологии. Полная версия со всеми 3D-видами и фазовыми развёртками — в
+    <a href="../../mobius-integrated-unit.html" target="_blank" rel="noopener">mobius-integrated-unit.html</a>
+    (исходник проекта).
+  </div>
+</section>
+
+<section id="next">
+  <h2><span class="num">03</span> Что дальше</h2>
+  <div class="prose">
+    <p><strong>В работе:</strong> параметрическая модель катушки с произвольным числом витков на Мёбиус-каркасе, расчёт самоиндукции по эллиптическим Bessel-функциям, симуляция в FEMM.</p>
+    <p><strong>Дорожная карта:</strong> макет 1:1 → измерение S-параметров на NanoVNA → сравнение с обычной катушкой того же объёма → статья / патент.</p>
+    <p><strong>Источники:</strong> Davis R.L. US 3,267,406 (1966) — Möbius resistor; Herges group (2003) — Möbius aromaticity; Ozawa et al. (2019) — topological photonics review. Подробный индекс в долгосрочной памяти Isaac'а.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>Сайт собран Isaac'ом (Asimov-persona) ·
+    <a href="../index.html">← назад к проектам</a> ·
+    <a href="https://github.com/AndreySog/andrei-ideas-site" target="_blank" rel="noopener">github</a>
+    <span class="gate-badge" title="Защищено паролем (клиентский гейт)"><span class="dot"></span>protected</span>
+  </p>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/lock.js"></script>
+</body>
+</html>

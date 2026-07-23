@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Антивандальные резиновые световые буквы для вывесок</title>
+<meta name="description" content="Изготовление белых резиновых световых букв для наружной и внутренней рекламы. Антивандальная конструкция, RGB-подсветка, разные типы резины под задачу.">
+<link rel="stylesheet" href="../assets/css/main.css">
+<link rel="stylesheet" href="../assets/css/lock.css">
+<style>
+  .product-hero { padding: 72px 24px 42px; text-align: left; }
+  .product-hero .hero-inner { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr); gap: 40px; align-items: center; }
+  .eyebrow { font-family: var(--mono); color: var(--accent); letter-spacing: .14em; text-transform: uppercase; font-size: .78rem; margin-bottom: 18px; }
+  .product-hero h1 { text-align: left; font-size: clamp(2.1rem, 5vw, 4.4rem); }
+  .lead { color: var(--text-dim); font-size: 1.12rem; max-width: 720px; }
+  .cta-row { display:flex; flex-wrap:wrap; gap: 12px; margin-top: 28px; }
+  .btn { display:inline-flex; align-items:center; justify-content:center; padding: 12px 18px; border-radius: 10px; border: 1px solid var(--line-strong); font-family: var(--mono); font-size:.88rem; }
+  .btn-primary { color:#061018; background: var(--accent); box-shadow: 0 0 26px var(--accent-glow); font-weight: 700; }
+  .btn-secondary { color: var(--text); background: var(--bg-card); }
+  .letter-demo { position: relative; min-height: 390px; border: 1px solid var(--line-strong); border-radius: 18px; overflow: hidden; background: radial-gradient(circle at 50% 35%, rgba(76,201,240,.22), transparent 28%), linear-gradient(145deg, #0b1119, #090b10); box-shadow: inset 0 0 60px rgba(255,255,255,.04); }
+  .letter-demo::before { content:""; position:absolute; inset:0; background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px); background-size: 28px 28px; }
+  .rubber-word { position:absolute; inset: 40px 24px auto; text-align:center; font-family: var(--mono); font-size: clamp(4rem, 11vw, 8.8rem); font-weight:900; letter-spacing: -.10em; color:#f3f6f7; text-shadow: 0 0 12px #fff, 0 0 28px #4cc9f0, 0 0 58px #8a2be2; filter: drop-shadow(0 22px 22px rgba(0,0,0,.55)); animation: hue 9s linear infinite; }
+  @keyframes hue { from { filter: hue-rotate(0deg) drop-shadow(0 22px 22px rgba(0,0,0,.55)); } to { filter: hue-rotate(360deg) drop-shadow(0 22px 22px rgba(0,0,0,.55)); } }
+  .impact-tags { position:absolute; left:22px; right:22px; bottom:22px; display:grid; grid-template-columns: repeat(3, 1fr); gap:10px; }
+  .impact-tags span { background: rgba(7,9,13,.72); border:1px solid var(--line-strong); border-radius: 10px; padding: 10px; color: var(--text-dim); font-family: var(--mono); font-size:.78rem; text-align:center; }
+  .section-kicker { color: var(--accent-2); font-family: var(--mono); font-size:.8rem; letter-spacing:.12em; text-transform:uppercase; }
+  .feature-grid { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:18px; }
+  .feature-card, .process-card, .use-card { background: var(--bg-card); border:1px solid var(--line); border-radius: 14px; padding: 22px; }
+  .feature-card h3, .process-card h3, .use-card h3 { margin-top:0; font-family: var(--mono); color: var(--text); }
+  .feature-card p, .process-card p, .use-card p { color: var(--text-dim); margin-bottom:0; }
+  .specs { display:grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .spec-list { list-style:none; padding:0; margin:0; }
+  .spec-list li { padding: 13px 0; border-bottom:1px solid var(--line); display:flex; gap:14px; justify-content:space-between; }
+  .spec-list strong { color: var(--text); }
+  .spec-list span { color: var(--text-dim); text-align:right; }
+  .process { counter-reset: step; display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap:14px; }
+  .process-card::before { counter-increment: step; content: "0" counter(step); display:inline-flex; color: var(--accent); font-family: var(--mono); margin-bottom: 12px; }
+  .cta-panel { border:1px solid var(--accent); border-radius:18px; padding:34px; background: linear-gradient(135deg, rgba(76,201,240,.14), rgba(244,140,46,.08)); display:grid; grid-template-columns: 1fr auto; gap:24px; align-items:center; }
+  .note { color: var(--text-mute); font-size:.9rem; }
+  @media (max-width: 900px) { .product-hero .hero-inner, .specs, .cta-panel { grid-template-columns:1fr; } .feature-grid, .process { grid-template-columns:1fr 1fr; } }
+  @media (max-width: 620px) { .feature-grid, .process, .impact-tags { grid-template-columns:1fr; } .letter-demo { min-height:420px; } .rubber-word { font-size:4.4rem; } }
+</style>
+</head>
+<body>
+<header class="hero product-hero">
+  <div class="hero-corners"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">// наружная реклама · световые буквы · no glass</div>
+      <h1>Антивандальные резиновые буквы для вывесок</h1>
+      <p class="lead">Белые объёмные буквы из специальной резины с внутренней LED-подсветкой. Днём выглядят чисто и премиально, ночью могут светиться любым цветом — от фирменного белого до динамического RGB.</p>
+      <p class="lead">Главное ноу-хау: мягкий или усиленный резиновый корпус вместо хрупкого пластика и стекла. Такие буквы рассчитаны выдерживать удары, град, сосульки и жёсткую уличную эксплуатацию.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#request">Рассчитать вывеску</a>
+        <a class="btn btn-secondary" href="#features">Посмотреть преимущества</a>
+      </div>
+    </div>
+    <div class="letter-demo" aria-label="Демонстрация светящихся резиновых букв">
+      <div class="rubber-word">SIGN</div>
+      <div class="impact-tags">
+        <span>ударостойко</span>
+        <span>гибкая резина</span>
+        <span>любой цвет LED</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="quick-nav">
+  <a href="../index.html">← идеи</a>
+  <a href="#features">преимущества</a>
+  <a href="#materials">резина</a>
+  <a href="#uses">применение</a>
+  <a href="#request">заявка</a>
+</nav>
+
+<main>
+<section id="features">
+  <div class="section-kicker">01 · почему это сильнее обычной вывески</div>
+  <h2><span class="num">01</span> Антивандальная световая реклама</h2>
+  <div class="feature-grid">
+    <article class="feature-card"><h3>Не хрупкий акрил</h3><p>Корпус буквы не разбивается как стекло или тонкий пластик. При ударе резина гасит энергию и возвращается к форме.</p></article>
+    <article class="feature-card"><h3>Защита от улицы</h3><p>Конструкция рассчитана на град, наледь, сосульки, случайные удары и жёсткий городской монтаж.</p></article>
+    <article class="feature-card"><h3>Любой цвет свечения</h3><p>Белая резина работает как мягкий рассеиватель. LED-модули внутри дают белый, фирменный цвет или RGB-сценарии.</p></article>
+    <article class="feature-card"><h3>Мягкая безопасность</h3><p>Можно заказать очень мягкую резину для интерьеров, детских зон, выставок и мест, где важна травмобезопасность.</p></article>
+    <article class="feature-card"><h3>Индивидуальная жёсткость</h3><p>Материал подбирается под задачу: огнестойкий, мягкий, твёрдый, эластичный или растягивающийся.</p></article>
+    <article class="feature-card"><h3>Не только буквы</h3><p>Из той же технологии можно делать логотипы, барельефы, цветы, головы, персонажей и объёмные рекламные формы.</p></article>
+  </div>
+</section>
+
+<section id="materials">
+  <div class="section-kicker">02 · материал под задачу</div>
+  <h2><span class="num">02</span> Варианты резины</h2>
+  <div class="specs">
+    <div class="feature-card">
+      <h3>Что можно настроить</h3>
+      <ul class="spec-list">
+        <li><strong>Цвет корпуса</strong><span>белый базовый, под светорассеивание</span></li>
+        <li><strong>Подсветка</strong><span>LED / RGB / фирменный цвет</span></li>
+        <li><strong>Жёсткость</strong><span>мягкая, средняя, твёрдая</span></li>
+        <li><strong>Эластичность</strong><span>от упругой до тянущейся</span></li>
+        <li><strong>Огнестойкость</strong><span>по отдельному заказу</span></li>
+      </ul>
+    </div>
+    <div class="feature-card">
+      <h3>Как это продаём</h3>
+      <p>Это не просто «световые буквы». Это премиальная вывеска для мест, где обычная реклама быстро ломается: улица, фасад, ТЦ, входная группа, бар, магазин, детская зона, выставочный стенд.</p>
+      <p class="note">Юридически и рекламно лучше подтверждать экстремальные заявления протоколами испытаний. До них безопасная формула: «рассчитаны выдерживать сильные удары и уличные нагрузки».</p>
+    </div>
+  </div>
+</section>
+
+<section id="uses">
+  <div class="section-kicker">03 · где применять</div>
+  <h2><span class="num">03</span> Форматы изделий</h2>
+  <div class="feature-grid">
+    <article class="use-card"><h3>Фасадные вывески</h3><p>Объёмные буквы для магазинов, кафе, салонов, пунктов выдачи и входных групп.</p></article>
+    <article class="use-card"><h3>Интерьерная реклама</h3><p>Мягкие световые логотипы для ресепшена, шоурума, офиса, фотозоны или сцены.</p></article>
+    <article class="use-card"><h3>Арт-объекты</h3><p>Барельефы, головы, цветы, персонажи, маскоты и любые объёмные формы по 3D-модели.</p></article>
+  </div>
+</section>
+
+<section id="process">
+  <div class="section-kicker">04 · производство</div>
+  <h2><span class="num">04</span> Как делается заказ</h2>
+  <div class="process">
+    <article class="process-card"><h3>Макет</h3><p>Берём логотип, шрифт, размеры, место монтажа и требования к цвету свечения.</p></article>
+    <article class="process-card"><h3>Материал</h3><p>Подбираем тип резины: мягкая, твёрдая, эластичная, огнестойкая или комбинированная.</p></article>
+    <article class="process-card"><h3>Изготовление</h3><p>Формируем корпус, интегрируем LED-подсветку, проверяем равномерность свечения.</p></article>
+    <article class="process-card"><h3>Монтаж</h3><p>Готовим крепёж и электрику под фасад или интерьер, даём рекомендации по эксплуатации.</p></article>
+  </div>
+</section>
+
+<section id="request">
+  <div class="cta-panel">
+    <div>
+      <div class="section-kicker">05 · заявка</div>
+      <h2>Нужна вывеска, которую сложно разбить?</h2>
+      <p>Пришлите слово/логотип, примерный размер, город монтажа и где будет стоять вывеска: улица или помещение. В ответ можно подготовить концепт, оценку материала и варианты свечения.</p>
+    </div>
+    <a class="btn btn-primary" href="mailto:example@example.com?subject=Резиновые%20световые%20буквы">Запросить расчёт</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="links">
+    <a href="../index.html">на главную</a>
+    <span class="gate-badge"><span class="dot"></span>prototype page</span>
+  </div>
+  <div>антивандальные резиновые световые буквы · концепт лендинга</div>
+</footer>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/lock.js"></script>
+</body>
+</html>

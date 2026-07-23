@@ -1,0 +1,5 @@
+.DS_Store
+*.tmp
+# Generated reference bolts (regeneratable by generate_references.py)
+assets/img/bolt-m*-reference.svg
+assets/img/bolt-m*-reference.png

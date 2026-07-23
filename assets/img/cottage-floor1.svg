@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-800 -800 12600 13600" width="11000" height="12000">
+<text x="4000" y="-500" font-family="Arial" font-size="350" font-weight="bold" fill="#1A1A18" text-anchor="start">ПЛАН 1 ЭТАЖА</text>
+<line x1="0" y1="-400" x2="0" y2="12400" stroke="#666" stroke-width="0.8" stroke-dasharray="24 5 3 5"/>
+<text x="0" y="-600" font-family="Arial" font-size="280" font-weight="bold" fill="#1A1A18" text-anchor="middle">А</text>
+<line x1="2000" y1="-400" x2="2000" y2="12400" stroke="#666" stroke-width="0.8" stroke-dasharray="24 5 3 5"/>
+<text x="2000" y="-600" font-family="Arial" font-size="280" font-weight="bold" fill="#1A1A18" text-anchor="middle">Б</text>
+<line x1="4000" y1="-400" x2="4000" y2="12400" stroke="#666" stroke-width="0.8" stroke-dasharray="24 5 3 5"/>
+<text x="4000" y="-600" font-family="Arial" font-size="280" font-weight="bold" fill="#1A1A18" text-anchor="middle">В</text>
+<line x1="6000" y1="-400" x2="6000" y2="12400" stroke="#666" stroke-width="0.8" stroke-dasharray="24 5 3 5"/>
+<text x="6000" y="-600" font-family="Arial" font-size="280" font-weight="bold" fill="#1A1A18" text-anchor="middle">Г</text>
+<line x1="8000" y1="-400" x2="8000" y2="12400" stroke="#666" stroke-width="0.8" stroke-dasharray="24 5 3 5"/>
+<text x="8000" y="-600" font-family="Arial" font-size="280" font-weight="bold" fill="#1A1A18" text-anchor="middle">Д</text>
+<line x1="10000" y1="-400" x2="10000" y2="12400" stroke="#666" stroke-width="0.8" stroke-dasharray="24 5 3 5"/>
+<text x="10000" y="-600" font-family="Arial" font-size="280" font-weight="bold" fill="#1A1A18" text-anchor="middle">Е</text>
+<line x1="-400" y1="0" x2="11400" y2="0" stroke="#666" stroke-width="0.8" stroke-dasharray="24 5 3 5"/>
+<text x="-750" y="100" font-family="Arial" font-size="280" font-weight="bold" fill="#1A1A18" text-anchor="middle">1</text>
+<line x1="-400" y1="2000" x2="11400" y2="2000" stroke="#666" stroke-width="0.8" stroke-dasharray="24 5 3 5"/>
+<text x="-750" y="2100" font-family="Arial" font-size="280" font-weight="bold" fill="#1A1A18" text-anchor="middle">2</text>
+<line x1="-400" y1="4000" x2="11400" y2="4000" stroke="#666" stroke-width="0.8" stroke-dasharray="24 5 3 5"/>
+<text x="-750" y="4100" font-family="Arial" font-size="280" font-weight="bold" fill="#1A1A18" text-anchor="middle">3</text>
+<line x1="-400" y1="6000" x2="11400" y2="6000" stroke="#666" stroke-width="0.8" stroke-dasharray="24 5 3 5"/>
+<text x="-750" y="6100" font-family="Arial" font-size="280" font-weight="bold" fill="#1A1A18" text-anchor="middle">4</text>
+<line x1="-400" y1="8000" x2="11400" y2="8000" stroke="#666" stroke-width="0.8" stroke-dasharray="24 5 3 5"/>
+<text x="-750" y="8100" font-family="Arial" font-size="280" font-weight="bold" fill="#1A1A18" text-anchor="middle">5</text>
+<line x1="-400" y1="10000" x2="11400" y2="10000" stroke="#666" stroke-width="0.8" stroke-dasharray="24 5 3 5"/>
+<text x="-750" y="10100" font-family="Arial" font-size="280" font-weight="bold" fill="#1A1A18" text-anchor="middle">6</text>
+<line x1="-400" y1="12000" x2="11400" y2="12000" stroke="#666" stroke-width="0.8" stroke-dasharray="24 5 3 5"/>
+<text x="-750" y="12100" font-family="Arial" font-size="280" font-weight="bold" fill="#1A1A18" text-anchor="middle">7</text>
+<line x1="0" y1="0" x2="11000" y2="0" stroke="#1A1A18" stroke-width="4"/>
+<line x1="120" y1="120" x2="10880" y2="120" stroke="#1A1A18" stroke-width="1.5"/>
+<line x1="0" y1="12000" x2="11000" y2="12000" stroke="#1A1A18" stroke-width="4"/>
+<line x1="120" y1="11880" x2="10880" y2="11880" stroke="#1A1A18" stroke-width="1.5"/>
+<line x1="0" y1="0" x2="0" y2="12000" stroke="#1A1A18" stroke-width="4"/>
+<line x1="120" y1="120" x2="120" y2="11880" stroke="#1A1A18" stroke-width="1.5"/>
+<line x1="11000" y1="0" x2="11000" y2="12000" stroke="#1A1A18" stroke-width="4"/>
+<line x1="10880" y1="120" x2="10880" y2="11880" stroke="#1A1A18" stroke-width="1.5"/>
+<line x1="2000" y1="0" x2="2000" y2="2500" stroke="#1A1A18" stroke-width="1.5"/>
+<line x1="4000" y1="0" x2="4000" y2="4000" stroke="#1A1A18" stroke-width="1.5"/>
+<line x1="0" y1="2000" x2="8000" y2="2000" stroke="#1A1A18" stroke-width="1.5"/>
+<line x1="8000" y1="0" x2="8000" y2="6000" stroke="#1A1A18" stroke-width="1.5"/>
+<line x1="0" y1="1500" x2="800" y2="1500" stroke="#1A1A18" stroke-width="1.2"/>
+<path d="M 800 1500 A 800 800 0 0 1 4.898587196589413e-14 2300" fill="none" stroke="#1A1A18" stroke-width="1.2"/>
+<line x1="3500" y1="5000" x2="4400" y2="5000" stroke="#1A1A18" stroke-width="1.2"/>
+<path d="M 4400 5000 A 900 900 0 0 1 3500 5900" fill="none" stroke="#1A1A18" stroke-width="1.2"/>
+<line x1="5000" y1="7000" x2="5900" y2="7000" stroke="#1A1A18" stroke-width="1.2"/>
+<path d="M 5900 7000 A 900 900 0 0 1 5000 7900" fill="none" stroke="#1A1A18" stroke-width="1.2"/>
+<line x1="2000" y1="8000" x2="2900" y2="8000" stroke="#1A1A18" stroke-width="1.2"/>
+<path d="M 2900 8000 A 900 900 0 0 1 2000 8900" fill="none" stroke="#1A1A18" stroke-width="1.2"/>
+<line x1="1500" y1="-100" x2="2500" y2="-100" stroke="#1A1A18" stroke-width="1.2"/>
+<line x1="1500" y1="100" x2="2500" y2="100" stroke="#1A1A18" stroke-width="1.2"/>
+<line x1="1500" y1="0" x2="2500" y2="0" stroke="#1A1A18" stroke-width="1.2"/>
+<line x1="5500" y1="-100" x2="6500" y2="-100" stroke="#1A1A18" stroke-width="1.2"/>
+<line x1="5500" y1="100" x2="6500" y2="100" stroke="#1A1A18" stroke-width="1.2"/>
+<line x1="5500" y1="0" x2="6500" y2="0" stroke="#1A1A18" stroke-width="1.2"/>
+<line x1="7000" y1="11900" x2="8500" y2="11900" stroke="#1A1A18" stroke-width="1.2"/>
+<line x1="7000" y1="12100" x2="8500" y2="12100" stroke="#1A1A18" stroke-width="1.2"/>
+<line x1="7000" y1="12000" x2="8500" y2="12000" stroke="#1A1A18" stroke-width="1.2"/>
+<line x1="-100" y1="5500" x2="-100" y2="7000" stroke="#1A1A18" stroke-width="1.2"/>
+<line x1="100" y1="5500" x2="100" y2="7000" stroke="#1A1A18" stroke-width="1.2"/>
+<line x1="0" y1="5500" x2="0" y2="7000" stroke="#1A1A18" stroke-width="1.2"/>
+<text x="700" y="1050" font-family="Arial" font-size="200" font-weight="bold" fill="#1A1A18" text-anchor="start">Тамбур</text>
+<text x="850" y="1250" font-family="Arial" font-size="160" font-weight="normal" fill="#1A1A18" text-anchor="start">4.0 м²</text>
+<text x="2650" y="1300" font-family="Arial" font-size="200" font-weight="bold" fill="#1A1A18" text-anchor="start">Санузел</text>
+<text x="2850" y="1500" font-family="Arial" font-size="160" font-weight="normal" fill="#1A1A18" text-anchor="start">5.0 м²</text>
+<text x="5650" y="2050" font-family="Arial" font-size="200" font-weight="bold" fill="#1A1A18" text-anchor="start">Спальня</text>
+<text x="5850" y="2250" font-family="Arial" font-size="160" font-weight="normal" fill="#1A1A18" text-anchor="start">16.0 м²</text>
+<text x="3300" y="5050" font-family="Arial" font-size="200" font-weight="bold" fill="#1A1A18" text-anchor="start">Кухня-гостиная</text>
+<text x="3850" y="5250" font-family="Arial" font-size="160" font-weight="normal" fill="#1A1A18" text-anchor="start">48.0 м²</text>
+<text x="9150" y="3050" font-family="Arial" font-size="200" font-weight="bold" fill="#1A1A18" text-anchor="start">Терраса</text>
+<text x="9350" y="3250" font-family="Arial" font-size="160" font-weight="normal" fill="#1A1A18" text-anchor="start">18.0 м²</text>
+<line x1="0" y1="-300" x2="11000" y2="-300" stroke="#1A1A18" stroke-width="0.6"/>
+<line x1="0" y1="-300" x2="0" y2="-400" stroke="#1A1A18" stroke-width="0.6"/>
+<line x1="11000" y1="-300" x2="11000" y2="-400" stroke="#1A1A18" stroke-width="0.6"/>
+<text x="5100" y="-350" font-family="Arial" font-size="160" font-weight="normal" fill="#1A1A18" text-anchor="start">11.0 м</text>
+<line x1="-300" y1="0" x2="-300" y2="12000" stroke="#1A1A18" stroke-width="0.6"/>
+<line x1="-300" y1="0" x2="-400" y2="0" stroke="#1A1A18" stroke-width="0.6"/>
+<line x1="-300" y1="12000" x2="-400" y2="12000" stroke="#1A1A18" stroke-width="0.6"/>
+<text x="-550" y="6050" font-family="Arial" font-size="160" font-weight="normal" fill="#1A1A18" text-anchor="start">12.0 м</text>
+</svg>

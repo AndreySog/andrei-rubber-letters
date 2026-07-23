@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Идеи Андрея — интерактивный сайт</title>
+<meta name="description" content="Интерактивные идеи и проекты Андрея: мёбиус-узел, болты по ГОСТ, и другие инженерные концепции.">
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/lock.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-corners"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">// ISAAC · IDEAS · v2.0</div>
+    <h1>Идеи <span class="accent">Андрея</span></h1>
+    <p class="hero-sub">Интерактивная витрина инженерных концепций, которые можно потрогать руками. Каждая идея — отдельная страница со схемами, 3D и интерактивом.</p>
+
+    <div class="hero-stats" aria-label="Статистика сайта">
+      <span class="stat-chip">
+        <span class="stat-dot"></span>
+        <span class="stat-val">5</span><span class="stat-label">/ live</span>
+      </span>
+      <span class="stat-chip">
+        <span class="stat-val">6</span><span class="stat-label">/ ideas</span>
+      </span>
+      <span class="stat-chip">
+        <span class="stat-val">13</span><span class="stat-label">/ files</span>
+      </span>
+      <span class="stat-chip">
+        <span class="stat-val" id="deploy-age">…</span><span class="stat-label">/ since deploy</span>
+      </span>
+    </div>
+
+    <div class="hero-meta">
+      <span>RU · EN</span>
+      <span class="dot">·</span>
+      <span>Saint Petersburg</span>
+      <span class="dot">·</span>
+      <span>updated <time id="last-updated">…</time></span>
+    </div>
+  </div>
+</header>
+
+<nav class="quick-nav">
+  <a href="#about">о сайте</a>
+  <a href="#projects">проекты</a>
+  <a href="#backlog">в работе</a>
+  <a href="https://github.com/AndreySog/andrei-ideas-site" target="_blank" rel="noopener">github ↗</a>
+</nav>
+
+<main>
+
+<section id="about">
+  <h2><span class="num">01</span> О сайте</h2>
+  <div class="split-grid">
+    <div class="about-card">
+      <h3>// зачем</h3>
+      <p>Публичная витрина идей Андрея. Каждая страница — самодостаточный документ: открывается на телефоне, шарится по ссылке, показывается друзьям / инвесторам / производству.</p>
+    </div>
+    <div class="about-card">
+      <h3>// форматы</h3>
+      <p><strong>«Нарисуй»</strong> — пиксельный трейс учебного образца. Визуально точно, не редактируется как чертёж.</p>
+      <p><strong>«Начерти»</strong> — параметрические кривые по ЕСКД. Открывается в Illustrator / Inkscape / AutoCAD, пригодно для производства.</p>
+    </div>
+    <div class="about-card">
+      <h3>// стек</h3>
+      <p>Чистый HTML + CSS + vanilla JS. Никаких бандлеров, фреймворков, CDN. Хостинг — GitHub Pages, деплой через git push.</p>
+    </div>
+    <div class="about-card">
+      <h3>// обновления</h3>
+      <p>Каждая итерация коммитится в <a href="https://github.com/AndreySog/andrei-ideas-site" target="_blank" rel="noopener">репозиторий</a>. История версий — в git, актуальная версия — на этом сайте. Без рекламы, без трекинга.</p>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2><span class="num">02</span> Проекты</h2>
+
+  <div class="subsection-label">
+    <span>Live</span>
+    <span class="count">5</span>
+  </div>
+  <div class="grid">
+
+    <a class="card" href="ideas/rubber-letters.html">
+      <div class="card-thumb thumb-rubber">
+        <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+          <text x="100" y="62" text-anchor="middle" font-family="monospace" font-size="46" font-weight="900"
+                fill="#f7fbff" stroke="var(--accent)" stroke-width="1.5">SIGN</text>
+          <path d="M30 78 C70 92, 130 92, 170 78" fill="none" stroke="var(--accent-2)" stroke-width="2" stroke-dasharray="5,4"/>
+          <circle cx="52" cy="28" r="5" fill="var(--accent)" opacity=".8"/>
+          <circle cx="148" cy="28" r="5" fill="var(--accent-2)" opacity=".8"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="badge badge-status">● live</span>
+          <span class="badge badge-tag">реклама</span>
+          <span class="badge badge-complexity">anti-vandal</span>
+        </div>
+        <h3>Резиновые световые буквы</h3>
+        <p>Лендинг для антивандальных объёмных букв из белой резины: LED/RGB-подсветка, гибкость, ударостойкость, фасадная и интерьерная реклама.</p>
+        <div class="card-foot">
+          <span>rubber-letters.html</span>
+          <span class="arrow">открыть ↘</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="ideas/mobius-unit.html">
+      <div class="card-thumb thumb-mobius">
+        <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 20 50 C 70 10, 130 10, 180 50 C 130 90, 70 90, 20 50"
+                fill="none" stroke="var(--accent)" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M 20 50 C 70 90, 130 90, 180 50"
+                fill="none" stroke="var(--accent-2)" stroke-width="2" stroke-dasharray="4,3"/>
+          <circle cx="100" cy="50" r="6" fill="var(--accent-2)"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="badge badge-status">● live</span>
+          <span class="badge badge-tag">топология</span>
+          <span class="badge badge-complexity">⚙ R&amp;D</span>
+        </div>
+        <h3>Мёбиус-узел</h3>
+        <p>Лента Мёбиуса как несущая рама + катушки + магниты. Не-реципрокные моды, сниженная самоиндукция, хиральный EM-ответ.</p>
+        <div class="card-foot">
+          <span>mobius-unit.html</span>
+          <span class="arrow">открыть ↘</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="ideas/cottage-classic.html">
+      <div class="card-thumb thumb-cottage">
+        <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="35" width="120" height="55" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+          <rect x="140" y="55" width="40" height="35" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="3,2"/>
+          <polygon points="20,35 80,15 140,35" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+          <line x1="40" y1="55" x2="60" y2="55" stroke="var(--accent-2)" stroke-width="1.5"/>
+          <line x1="40" y1="75" x2="60" y2="75" stroke="var(--accent-2)" stroke-width="1.5"/>
+          <line x1="90" y1="55" x2="120" y2="55" stroke="var(--accent-2)" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="badge badge-status">● live</span>
+          <span class="badge badge-tag">архитектура</span>
+          <span class="badge badge-complexity">✓ СП 55</span>
+        </div>
+        <h3>Коттедж классика — 120 м²</h3>
+        <p>2 этажа, 10×12 м + терраса. Планы этажей по ГОСТ 21.501 с автоматической проверкой по СП 55.13330.2011. Сгенерировано через skill arch-cad-generator (адаптация под RU-нормы).</p>
+        <div class="card-foot">
+          <span>cottage-classic.html</span>
+          <span class="arrow">открыть ↘</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="ideas/bolt-m8.html">
+      <div class="card-thumb thumb-bolt">
+        <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="30,25 70,25 70,35 145,35 145,70 70,70 70,80 30,80"
+                   fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+          <polygon points="50,25 70,25 70,80 50,80"
+                   fill="none" stroke="var(--accent-2)" stroke-width="1.5" stroke-dasharray="3,2"/>
+          <circle cx="60" cy="52" r="9" fill="none" stroke="var(--accent-2)" stroke-width="2"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="badge badge-status">● live</span>
+          <span class="badge badge-tag">крепёж</span>
+          <span class="badge badge-complexity">✓ ГОСТ</span>
+        </div>
+        <h3>Болт М8 × 40</h3>
+        <p>Демонстрация двух форматов одной детали: «нарисуй» (трейс Рис. 51) ↔ «начерти» (ЕСКД, параметрический). Переключение интерактивное.</p>
+        <div class="card-foot">
+          <span>bolt-m8.html</span>
+          <span class="arrow">открыть ↘</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="ideas/bolt-m10.html">
+      <div class="card-thumb thumb-bolt">
+        <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="22,28 70,28 70,38 158,38 158,68 70,68 70,78 22,78"
+                   fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+          <polygon points="48,28 70,28 70,78 48,78"
+                   fill="none" stroke="var(--accent-2)" stroke-width="1.5" stroke-dasharray="3,2"/>
+          <circle cx="60" cy="53" r="11" fill="none" stroke="var(--accent-2)" stroke-width="2"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="badge badge-status">● live</span>
+          <span class="badge badge-tag">крепёж</span>
+          <span class="badge badge-complexity">✓ ГОСТ</span>
+        </div>
+        <h3>Болт М10 × 50</h3>
+        <p>Параметрический чертёж по ЕСКД — главный вид с размерами и вид слева. Сгенерировано по skill «eskd-svg-drafting» (msgId 953 apply).</p>
+        <div class="card-foot">
+          <span>bolt-m10.html</span>
+          <span class="arrow">открыть ↘</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="subsection-label" id="backlog" hidden>
+    <span>В работе</span>
+    <span class="count">0</span>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="links">
+    <a href="https://github.com/AndreySog/andrei-ideas-site" target="_blank" rel="noopener">github</a>
+    <a href="https://github.com/AndreySog/andrei-ideas-site/commits/main" target="_blank" rel="noopener">history</a>
+    <a href="https://andreysog.github.io/andrei-ideas-site/" target="_blank" rel="noopener">permalink</a>
+    <span class="gate-badge" title="Защищено паролем (клиентский гейт)"><span class="dot"></span>protected</span>
+  </div>
+  <div>
+    собран Isaac'ом · хостинг GitHub Pages ·
+    <span class="commit">build <span id="commit-sha">…</span></span>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/lock.js"></script>
+</body>
+</html>

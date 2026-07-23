@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>ЕСКД·SVG — руководство для ИИ-агентов</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&amp;family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&amp;family=JetBrains+Mono:ital,wght@0,400;0,600&amp;display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#e9e6db;color:#26241f;-webkit-font-smoothing:antialiased}
+a{color:#33527D}
+a:hover{color:#1F3A5F}
+</style>
+</helmet>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <marker id="ar" orient="auto-start-reverse" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="10" viewBox="-13 -5 26 10" refX="0" refY="0"><path d="M0,0 L-12,2.4 L-12,-2.4 Z" fill="#1a1a18"></path></marker>
+    <marker id="dt" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" viewBox="-4 -4 8 8" refX="0" refY="0"><circle r="2.6" fill="#1a1a18"></circle></marker>
+    <pattern id="ht" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x2="9" stroke="#1a1a18" stroke-width="1"></line></pattern>
+    <pattern id="ht2" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(135)"><line x2="7" stroke="#1a1a18" stroke-width="1"></line></pattern>
+  </defs>
+</svg>
+<div style="padding:36px 20px 56px">
+  <div style="max-width:1240px; margin:0 auto; background:#fdfcf8; border:2.4px solid #1a1a18; font-family:'PT Serif',serif; box-shadow:0 2px 0 #1a1a18">
+
+    <div style="padding:44px 52px 0">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:16px; font:11px 'JetBrains Mono',monospace; letter-spacing:1.5px; color:#8a8578; text-transform:uppercase; border-bottom:1px solid #d8d3c4; padding-bottom:14px">
+        <span>Репозиторий идей и концептов · GitHub Pages</span>
+        <span>RU · июль 2026</span>
+      </div>
+      <h1 style="font:700 42px/1.15 'PT Serif',serif; margin:34px 0 0; letter-spacing:-0.5px; text-wrap:balance">Машиностроительные чертежи в&nbsp;SVG по&nbsp;ЕСКД</h1>
+      <p style="font-size:17px; line-height:1.6; margin:16px 0 0; max-width:760px; color:#3d3a32; text-wrap:pretty">Руководство для ИИ-агентов (Claude, Copilot): как строить чертежи в стиле учебника инженерной графики — линии, шрифт, размеры, штриховка, компоновка листа. С эталонным примером, Python-модулем и готовым промптом.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:8px; margin:22px 0 30px">
+        <span style="font:11px 'JetBrains Mono',monospace; border:1px solid #b9b4a4; padding:4px 10px; color:#5b574b">ГОСТ 2.303 — линии</span>
+        <span style="font:11px 'JetBrains Mono',monospace; border:1px solid #b9b4a4; padding:4px 10px; color:#5b574b">ГОСТ 2.304 — шрифты</span>
+        <span style="font:11px 'JetBrains Mono',monospace; border:1px solid #b9b4a4; padding:4px 10px; color:#5b574b">ГОСТ 2.305 — виды</span>
+        <span style="font:11px 'JetBrains Mono',monospace; border:1px solid #b9b4a4; padding:4px 10px; color:#5b574b">ГОСТ 2.306 — штриховка</span>
+        <span style="font:11px 'JetBrains Mono',monospace; border:1px solid #b9b4a4; padding:4px 10px; color:#5b574b">ГОСТ 2.307 — размеры</span>
+      </div>
+    </div>
+    <div style="display:grid; grid-template-columns:150px 210px 1fr 130px 130px; border-top:2.4px solid #1a1a18; border-bottom:2.4px solid #1a1a18; font:12px 'JetBrains Mono',monospace; color:#4a463c">
+      <div style="padding:9px 16px; border-right:1px solid #1a1a18"><span style="color:#8a8578">Разраб.</span>&nbsp; Claude</div>
+      <div style="padding:9px 16px; border-right:1px solid #1a1a18"><span style="color:#8a8578">Пров.</span>&nbsp; ИИ-верификатор</div>
+      <div style="padding:9px 16px; border-right:1px solid #1a1a18; text-align:center">Руководство · 12 разделов</div>
+      <div style="padding:9px 16px; border-right:1px solid #1a1a18"><span style="color:#8a8578">Масштаб</span>&nbsp; 1:1</div>
+      <div style="padding:9px 16px"><span style="color:#8a8578">Лист</span>&nbsp; 1/1</div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:200px minmax(0,1fr); gap:48px; padding:40px 52px 64px; align-items:start">
+
+      <nav style="position:sticky; top:24px; font:12.5px/1.5 'JetBrains Mono',monospace; padding-top:6px">
+        <div style="font-size:10px; letter-spacing:2px; color:#8a8578; margin-bottom:12px">СОДЕРЖАНИЕ</div>
+        <div style="display:grid; gap:2px">
+          <a href="#s1" style="color:#4a463c; text-decoration:none; padding:4px 0; border-bottom:1px dotted #d8d3c4" style-hover="color:#33527D">01&nbsp; Общие положения</a>
+          <a href="#s2" style="color:#4a463c; text-decoration:none; padding:4px 0; border-bottom:1px dotted #d8d3c4" style-hover="color:#33527D">02&nbsp; Линии</a>
+          <a href="#s3" style="color:#4a463c; text-decoration:none; padding:4px 0; border-bottom:1px dotted #d8d3c4" style-hover="color:#33527D">03&nbsp; Шрифт</a>
+          <a href="#s4" style="color:#4a463c; text-decoration:none; padding:4px 0; border-bottom:1px dotted #d8d3c4" style-hover="color:#33527D">04&nbsp; Размеры</a>
+          <a href="#s5" style="color:#4a463c; text-decoration:none; padding:4px 0; border-bottom:1px dotted #d8d3c4" style-hover="color:#33527D">05&nbsp; Штриховка, разрезы</a>
+          <a href="#s6" style="color:#4a463c; text-decoration:none; padding:4px 0; border-bottom:1px dotted #d8d3c4" style-hover="color:#33527D">06&nbsp; Компоновка листа</a>
+          <a href="#s7" style="color:#4a463c; text-decoration:none; padding:4px 0; border-bottom:1px dotted #d8d3c4" style-hover="color:#33527D">07&nbsp; Таблицы</a>
+          <a href="#s8" style="color:#4a463c; text-decoration:none; padding:4px 0; border-bottom:1px dotted #d8d3c4" style-hover="color:#33527D">08&nbsp; Сборочные чертежи</a>
+          <a href="#s9" style="color:#4a463c; text-decoration:none; padding:4px 0; border-bottom:1px dotted #d8d3c4" style-hover="color:#33527D">09&nbsp; Эталон — Рис. 51</a>
+          <sc-if value="{{ pyOn }}" hint-placeholder-val="{{ true }}"><a href="#s10" style="color:#4a463c; text-decoration:none; padding:4px 0; border-bottom:1px dotted #d8d3c4" style-hover="color:#33527D">10&nbsp; Python-генератор</a></sc-if>
+          <a href="#s11" style="color:#4a463c; text-decoration:none; padding:4px 0; border-bottom:1px dotted #d8d3c4" style-hover="color:#33527D">11&nbsp; Промпт для ИИ</a>
+          <a href="#s12" style="color:#4a463c; text-decoration:none; padding:4px 0" style-hover="color:#33527D">12&nbsp; Чек-лист</a>
+        </div>
+      </nav>
+
+      <main style="min-width:0">
+
+        <section id="s1">
+          <div style="display:flex; align-items:baseline; gap:14px; border-bottom:2.4px solid #1a1a18; padding-bottom:10px; margin-bottom:20px">
+            <span style="font:600 14px 'JetBrains Mono',monospace; color:#33527D">01</span>
+            <h2 style="font:700 26px 'PT Serif',serif; margin:0">Общие положения</h2>
+            <span style="flex:1"></span>
+            <span style="font:11px 'JetBrains Mono',monospace; color:#8a8578">основа</span>
+          </div>
+          <p style="font-size:15.5px; line-height:1.65; margin:0 0 16px; text-wrap:pretty">Каждый чертёж — один автономный inline-<b>SVG</b> без внешнего CSS: все атрибуты заданы на элементах, поэтому файл одинаково отображается в README, на GitHub Pages и в любом браузере. Человек читает разделы по порядку; ИИ-агенту достаточно JSON-констант ниже, промпта из <a href="#s11">§11</a> и чек-листа <a href="#s12">§12</a>.</p>
+          <div style="display:grid; gap:0; margin-bottom:20px">
+            <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px dotted #d8d3c4"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">1.1</span><div style="font-size:15px; line-height:1.55">Масштаб экрана: <b>1 мм = 3 px</b>. Все координаты — размер в миллиметрах, умноженный на 3.</div></div>
+            <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px dotted #d8d3c4"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">1.2</span><div style="font-size:15px; line-height:1.55">Один цвет туши <b>#1A1A18</b> на белом фоне. Ни теней, ни градиентов, ни скруглений «для красоты».</div></div>
+            <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px dotted #d8d3c4"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">1.3</span><div style="font-size:15px; line-height:1.55"><b>fill="none"</b> по умолчанию; заливка — только штриховка (pattern) и стрелки (marker).</div></div>
+            <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px dotted #d8d3c4"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">1.4</span><div style="font-size:15px; line-height:1.55">Порядок слоёв снизу вверх: оси → невидимый контур → видимый контур → штриховка → резьба → размеры → текст → позиции.</div></div>
+            <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px dotted #d8d3c4"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">1.5</span><div style="font-size:15px; line-height:1.55">Числа — с десятичной <b>запятой</b> («0,95»); единицы «мм» на чертеже не пишут. Координаты кратны 0,5 px.</div></div>
+            <div style="display:flex; gap:12px; padding:8px 0"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">1.6</span><div style="font-size:15px; line-height:1.55">Текст никогда не масштабируется transform-ом; допустим только rotate(-90&nbsp;x&nbsp;y) для вертикальных размеров.</div></div>
+          </div>
+          <div data-cw="1" style="border:1px solid #d8d3c4; background:#f3f0e7; margin-bottom:18px">
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:7px 14px; border-bottom:1px solid #d8d3c4">
+              <span style="font:12px 'JetBrains Mono',monospace; color:#6b675c">eskd.tokens.json — константы для системного промпта</span>
+              <button onClick="{{ copy }}" style="font:11px 'JetBrains Mono',monospace; border:1px solid #1a1a18; background:transparent; color:#1a1a18; padding:3px 10px; cursor:pointer" style-hover="background:#1a1a18; color:#fdfcf8">копировать</button>
+            </div>
+            <pre style="margin:0; padding:14px 18px; overflow:auto; font:12.5px/1.6 'JetBrains Mono',monospace; color:#26241f">{
+  "scale_px_per_mm": 3,
+  "ink": "#1A1A18",
+  "paper": "#FFFFFF",
+  "stroke": { "толстая": 2.4, "тонкая": 1.0, "разомкнутая": 3.6 },
+  "dash":   { "штриховая": "12 4", "осевая": "24 5 3 5" },
+  "hatch":  { "угол": 45, "шаг_px": 9 },
+  "arrow":  { "длина_px": 12, "ширина_px": 4.8 },
+  "font":   { "семейство": "PT Sans", "стиль": "italic",
+              "размерные_числа_px": 15, "заголовки_px": 21 },
+  "слои": ["оси", "невидимый контур", "видимый контур", "штриховка",
+           "резьба", "размеры", "текст", "позиции"]
+}</pre>
+          </div>
+          <sc-if value="{{ notesOn }}" hint-placeholder-val="{{ true }}">
+            <div style="border:1px solid #9fb0c9; background:#eef2f8; padding:12px 16px; display:flex; gap:14px; align-items:baseline">
+              <span style="font:600 10px 'JetBrains Mono',monospace; letter-spacing:1.5px; color:#33527D; white-space:nowrap">ДЛЯ ИИ</span>
+              <span style="font:14px/1.55 'PT Sans',sans-serif">Скопируй JSON целиком в системный промпт. Любое значение толщины, цвета или шрифта вне этого JSON — ошибка построения.</span>
+            </div>
+          </sc-if>
+        </section>
+
+        <section id="s2" style="margin-top:56px">
+          <div style="display:flex; align-items:baseline; gap:14px; border-bottom:2.4px solid #1a1a18; padding-bottom:10px; margin-bottom:20px">
+            <span style="font:600 14px 'JetBrains Mono',monospace; color:#33527D">02</span>
+            <h2 style="font:700 26px 'PT Serif',serif; margin:0">Линии</h2>
+            <span style="flex:1"></span>
+            <span style="font:11px 'JetBrains Mono',monospace; color:#8a8578">ГОСТ 2.303-68</span>
+          </div>
+          <div style="border:1px solid #d8d3c4; background:#fff; padding:6px 20px; margin-bottom:18px">
+            <div style="display:grid; grid-template-columns:minmax(140px,210px) minmax(150px,310px) minmax(0,1fr); gap:16px; align-items:center; padding:12px 0; border-bottom:1px solid #eae6d8">
+              <div><div style="font:700 14.5px 'PT Sans',sans-serif">Сплошная толстая основная</div><div style="font:13px 'PT Sans',sans-serif; color:#8a8578">видимый контур, граница резьбы</div></div>
+              <svg width="100%" height="24" viewBox="0 0 300 24" preserveAspectRatio="none"><line x1="8" y1="12" x2="292" y2="12" stroke="#1a1a18" stroke-width="2.4"></line></svg>
+              <code style="font:12px 'JetBrains Mono',monospace; color:#4a463c; overflow-wrap:anywhere">stroke-width="2.4"</code>
+            </div>
+            <div style="display:grid; grid-template-columns:minmax(140px,210px) minmax(150px,310px) minmax(0,1fr); gap:16px; align-items:center; padding:12px 0; border-bottom:1px solid #eae6d8">
+              <div><div style="font:700 14.5px 'PT Sans',sans-serif">Сплошная тонкая</div><div style="font:13px 'PT Sans',sans-serif; color:#8a8578">размерные, выносные, штриховка, впадины резьбы</div></div>
+              <svg width="100%" height="24" viewBox="0 0 300 24" preserveAspectRatio="none"><line x1="8" y1="12" x2="292" y2="12" stroke="#1a1a18" stroke-width="1"></line></svg>
+              <code style="font:12px 'JetBrains Mono',monospace; color:#4a463c; overflow-wrap:anywhere">stroke-width="1"</code>
+            </div>
+            <div style="display:grid; grid-template-columns:minmax(140px,210px) minmax(150px,310px) minmax(0,1fr); gap:16px; align-items:center; padding:12px 0; border-bottom:1px solid #eae6d8">
+              <div><div style="font:700 14.5px 'PT Sans',sans-serif">Штриховая</div><div style="font:13px 'PT Sans',sans-serif; color:#8a8578">невидимый контур</div></div>
+              <svg width="100%" height="24" viewBox="0 0 300 24" preserveAspectRatio="none"><line x1="8" y1="12" x2="292" y2="12" stroke="#1a1a18" stroke-width="1" stroke-dasharray="12 4"></line></svg>
+              <code style="font:12px 'JetBrains Mono',monospace; color:#4a463c; overflow-wrap:anywhere">stroke-dasharray="12 4"</code>
+            </div>
+            <div style="display:grid; grid-template-columns:minmax(140px,210px) minmax(150px,310px) minmax(0,1fr); gap:16px; align-items:center; padding:12px 0; border-bottom:1px solid #eae6d8">
+              <div><div style="font:700 14.5px 'PT Sans',sans-serif">Штрихпунктирная тонкая</div><div style="font:13px 'PT Sans',sans-serif; color:#8a8578">осевые и центровые линии</div></div>
+              <svg width="100%" height="24" viewBox="0 0 300 24" preserveAspectRatio="none"><line x1="8" y1="12" x2="292" y2="12" stroke="#1a1a18" stroke-width="1" stroke-dasharray="24 5 3 5"></line></svg>
+              <code style="font:12px 'JetBrains Mono',monospace; color:#4a463c; overflow-wrap:anywhere">stroke-dasharray="24 5 3 5"</code>
+            </div>
+            <div style="display:grid; grid-template-columns:minmax(140px,210px) minmax(150px,310px) minmax(0,1fr); gap:16px; align-items:center; padding:12px 0; border-bottom:1px solid #eae6d8">
+              <div><div style="font:700 14.5px 'PT Sans',sans-serif">Сплошная волнистая</div><div style="font:13px 'PT Sans',sans-serif; color:#8a8578">линия обрыва</div></div>
+              <svg width="100%" height="24" viewBox="0 0 300 24" preserveAspectRatio="none"><path d="M8,13 q18,-8 36,0 t36,0 t36,0 t36,0 t36,0 t36,0 t36,0" fill="none" stroke="#1a1a18" stroke-width="1"></path></svg>
+              <code style="font:12px 'JetBrains Mono',monospace; color:#4a463c; overflow-wrap:anywhere">path + q/t, width 1</code>
+            </div>
+            <div style="display:grid; grid-template-columns:minmax(140px,210px) minmax(150px,310px) minmax(0,1fr); gap:16px; align-items:center; padding:12px 0">
+              <div><div style="font:700 14.5px 'PT Sans',sans-serif">Разомкнутая</div><div style="font:13px 'PT Sans',sans-serif; color:#8a8578">положение секущей плоскости</div></div>
+              <svg width="100%" height="24" viewBox="0 0 300 24" preserveAspectRatio="none"><line x1="8" y1="12" x2="44" y2="12" stroke="#1a1a18" stroke-width="3.6"></line><line x1="256" y1="12" x2="292" y2="12" stroke="#1a1a18" stroke-width="3.6"></line></svg>
+              <code style="font:12px 'JetBrains Mono',monospace; color:#4a463c; overflow-wrap:anywhere">stroke-width="3.6"</code>
+            </div>
+          </div>
+          <div style="display:grid; gap:0; margin-bottom:18px">
+            <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px dotted #d8d3c4"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">2.1</span><div style="font-size:15px; line-height:1.55">На чертеже ровно два рабочих значения толщины: <b>2.4</b> (толстая) и <b>1</b> (все тонкие). Исключение — разомкнутая линия сечения: 3.6.</div></div>
+            <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px dotted #d8d3c4"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">2.2</span><div style="font-size:15px; line-height:1.55">Осевые выходят за контур на 6–15 px, начинаются и заканчиваются длинным штрихом, в центре отверстия пересекаются штрихами.</div></div>
+            <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px dotted #d8d3c4"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">2.3</span><div style="font-size:15px; line-height:1.55">Невидимый контур (штриховая) наносится только там, где без него чтение геометрии невозможно.</div></div>
+            <div style="display:flex; gap:12px; padding:8px 0"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">2.4</span><div style="font-size:15px; line-height:1.55">stroke-linecap не задавать (butt по умолчанию); соединения контуров — без скруглений.</div></div>
+          </div>
+          <sc-if value="{{ notesOn }}" hint-placeholder-val="{{ true }}">
+            <div style="border:1px solid #9fb0c9; background:#eef2f8; padding:12px 16px; display:flex; gap:14px; align-items:baseline">
+              <span style="font:600 10px 'JetBrains Mono',monospace; letter-spacing:1.5px; color:#33527D; white-space:nowrap">ДЛЯ ИИ</span>
+              <span style="font:14px/1.55 'PT Sans',sans-serif">Валидация: собери множество всех stroke-width в готовом SVG — оно обязано быть подмножеством {2.4, 1, 3.6}.</span>
+            </div>
+          </sc-if>
+        </section>
+
+        <section id="s3" style="margin-top:56px">
+          <div style="display:flex; align-items:baseline; gap:14px; border-bottom:2.4px solid #1a1a18; padding-bottom:10px; margin-bottom:20px">
+            <span style="font:600 14px 'JetBrains Mono',monospace; color:#33527D">03</span>
+            <h2 style="font:700 26px 'PT Serif',serif; margin:0">Шрифт</h2>
+            <span style="flex:1"></span>
+            <span style="font:11px 'JetBrains Mono',monospace; color:#8a8578">ГОСТ 2.304-81</span>
+          </div>
+          <div style="border:1px solid #d8d3c4; background:#fff; padding:22px 26px; margin-bottom:18px">
+            <div style="font:italic 30px 'PT Sans',sans-serif; color:#1a1a18">Размер 10 — АБВГДабвгд 0123456789</div>
+            <div style="font:italic 21px 'PT Sans',sans-serif; color:#1a1a18; margin-top:10px">Размер 7 — заголовки видов, номера позиций</div>
+            <div style="font:italic 15px 'PT Sans',sans-serif; color:#1a1a18; margin-top:10px">Размер 5 — размерные числа и надписи (основной)</div>
+            <div style="font:italic 21px 'PT Sans',sans-serif; color:#1a1a18; margin-top:16px; border-top:1px solid #eae6d8; padding-top:14px">⌀40&nbsp;&nbsp;&nbsp;М20×1,5&nbsp;&nbsp;&nbsp;R10&nbsp;&nbsp;&nbsp;2,5×45°&nbsp;&nbsp;&nbsp;±0,1&nbsp;&nbsp;&nbsp;l₀&nbsp;&nbsp;&nbsp;D₁</div>
+          </div>
+          <div style="display:grid; gap:0; margin-bottom:18px">
+            <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px dotted #d8d3c4"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">3.1</span><div style="font-size:15px; line-height:1.55">Один шрифт на весь чертёж: <b>'PT Sans', курсив</b> — веб-приближение наклонного шрифта типа Б (75°). Подключается с Google Fonts.</div></div>
+            <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px dotted #d8d3c4"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">3.2</span><div style="font-size:15px; line-height:1.55">Высоты: размерные числа — <b>15 px</b> (≈5 мм); индексы — 11 px; заголовки видов и номера позиций — 21 px; подписи «Рис. N» — 15–17 px.</div></div>
+            <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px dotted #d8d3c4"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">3.3</span><div style="font-size:15px; line-height:1.55">Спецсимволы — юникодом: ⌀ (U+2300), ° (U+00B0), × (U+00D7), ± (U+00B1); индексы — ₀ ₁ ₂. Обозначение резьбы — кириллическая заглавная М.</div></div>
+            <div style="display:flex; gap:12px; padding:8px 0"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">3.4</span><div style="font-size:15px; line-height:1.55">Обозначения величин (d, l, S, D, h) — курсивом и на чертеже, и в таблицах, и в тексте задания.</div></div>
+          </div>
+        </section>
+
+        <section id="s4" style="margin-top:56px">
+          <div style="display:flex; align-items:baseline; gap:14px; border-bottom:2.4px solid #1a1a18; padding-bottom:10px; margin-bottom:20px">
+            <span style="font:600 14px 'JetBrains Mono',monospace; color:#33527D">04</span>
+            <h2 style="font:700 26px 'PT Serif',serif; margin:0">Размеры</h2>
+            <span style="flex:1"></span>
+            <span style="font:11px 'JetBrains Mono',monospace; color:#8a8578">ГОСТ 2.307-68</span>
+          </div>
+          <div style="border:1px solid #d8d3c4; background:#fff; padding:14px 20px; margin-bottom:18px">
+            <svg width="100%" viewBox="-70 -46 380 232" style="display:block; max-width:640px; margin:0 auto">
+              <path d="M 0,30 A 30 30 0 0 1 30,0 L 180,0 L 180,105 L 165,120 L 0,120 Z" fill="none" stroke="#1a1a18" stroke-width="2.4"></path>
+              <circle cx="90" cy="60" r="30" fill="none" stroke="#1a1a18" stroke-width="2.4"></circle>
+              <line x1="52" y1="60" x2="128" y2="60" stroke="#1a1a18" stroke-width="1" stroke-dasharray="24 5 3 5"></line>
+              <line x1="90" y1="22" x2="90" y2="98" stroke="#1a1a18" stroke-width="1" stroke-dasharray="24 5 3 5"></line>
+              <line x1="0" y1="126" x2="0" y2="156" stroke="#1a1a18" stroke-width="1"></line>
+              <line x1="180" y1="126" x2="180" y2="156" stroke="#1a1a18" stroke-width="1"></line>
+              <line x1="0" y1="150" x2="180" y2="150" stroke="#1a1a18" stroke-width="1" marker-start="url(#ar)" marker-end="url(#ar)"></line>
+              <text x="90" y="145" text-anchor="middle" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="15">60</text>
+              <line x1="186" y1="0" x2="212" y2="0" stroke="#1a1a18" stroke-width="1"></line>
+              <line x1="186" y1="120" x2="212" y2="120" stroke="#1a1a18" stroke-width="1"></line>
+              <line x1="206" y1="0" x2="206" y2="120" stroke="#1a1a18" stroke-width="1" marker-start="url(#ar)" marker-end="url(#ar)"></line>
+              <text x="200" y="60" text-anchor="middle" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="15" transform="rotate(-90 200 60)">40</text>
+              <line x1="150" y1="-16" x2="111" y2="39" stroke="#1a1a18" stroke-width="1" marker-end="url(#ar)"></line>
+              <line x1="150" y1="-16" x2="196" y2="-16" stroke="#1a1a18" stroke-width="1"></line>
+              <text x="152" y="-21" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="15">⌀20</text>
+              <line x1="-26" y1="-26" x2="8.8" y2="8.8" stroke="#1a1a18" stroke-width="1" marker-end="url(#ar)"></line>
+              <text x="-30" y="-30" text-anchor="end" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="15">R10</text>
+              <line x1="172.5" y1="112.5" x2="212" y2="146" stroke="#1a1a18" stroke-width="1" marker-start="url(#ar)"></line>
+              <line x1="212" y1="146" x2="258" y2="146" stroke="#1a1a18" stroke-width="1"></line>
+              <text x="214" y="141" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="15">5×45°</text>
+            </svg>
+          </div>
+          <div style="display:grid; gap:0; margin-bottom:18px">
+            <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px dotted #d8d3c4"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">4.1</span><div style="font-size:15px; line-height:1.55">Размерная линия — тонкая, параллельна измеряемому отрезку, на расстоянии ≥ <b>30 px</b> от контура; между параллельными размерными ≥ <b>21 px</b>.</div></div>
+            <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px dotted #d8d3c4"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">4.2</span><div style="font-size:15px; line-height:1.55">Выносные — тонкие, перпендикулярны размерной; зазор от контура 0–3 px, выход за размерную <b>3–6 px</b>.</div></div>
+            <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px dotted #d8d3c4"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">4.3</span><div style="font-size:15px; line-height:1.55">Стрелки — заполненные, длина <b>12 px</b>, ширина 4.8 px, одинаковые на всём чертеже (один marker). Если между выносными &lt; 36 px — стрелки снаружи, остриями внутрь.</div></div>
+            <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px dotted #d8d3c4"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">4.4</span><div style="font-size:15px; line-height:1.55">Число — над размерной линией с зазором 3–4 px, по центру. На вертикальных размерах — rotate(-90), читается справа.</div></div>
+            <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px dotted #d8d3c4"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">4.5</span><div style="font-size:15px; line-height:1.55">Меньшие размеры — ближе к контуру, чтобы размерные и выносные линии не пересекались. Каждый размер ставится один раз.</div></div>
+            <div style="display:flex; gap:12px; padding:8px 0"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">4.6</span><div style="font-size:15px; line-height:1.55">Знаки: <b>⌀</b> перед диаметром; <b>R</b> перед радиусом (одна стрелка, в дугу); <b>М</b> — резьба (М20, М20×1,5); фаски — «2,5×45°».</div></div>
+          </div>
+          <div data-cw="2" style="border:1px solid #d8d3c4; background:#f3f0e7; margin-bottom:18px">
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:7px 14px; border-bottom:1px solid #d8d3c4">
+              <span style="font:12px 'JetBrains Mono',monospace; color:#6b675c">dimension.svg — минимальный размер со стрелками</span>
+              <button onClick="{{ copy }}" style="font:11px 'JetBrains Mono',monospace; border:1px solid #1a1a18; background:transparent; color:#1a1a18; padding:3px 10px; cursor:pointer" style-hover="background:#1a1a18; color:#fdfcf8">копировать</button>
+            </div>
+            <pre style="margin:0; padding:14px 18px; overflow:auto; font:12.5px/1.6 'JetBrains Mono',monospace; color:#26241f">{{ codeDim }}</pre>
+          </div>
+          <sc-if value="{{ notesOn }}" hint-placeholder-val="{{ true }}">
+            <div style="border:1px solid #9fb0c9; background:#eef2f8; padding:12px 16px; display:flex; gap:14px; align-items:baseline">
+              <span style="font:600 10px 'JetBrains Mono',monospace; letter-spacing:1.5px; color:#33527D; white-space:nowrap">ДЛЯ ИИ</span>
+              <span style="font:14px/1.55 'PT Sans',sans-serif">Все стрелки — один marker «ar» с orient="auto-start-reverse". Не рисуй стрелки полигонами вручную: они разъедутся по углу и размеру.</span>
+            </div>
+          </sc-if>
+        </section>
+
+        <section id="s5" style="margin-top:56px">
+          <div style="display:flex; align-items:baseline; gap:14px; border-bottom:2.4px solid #1a1a18; padding-bottom:10px; margin-bottom:20px">
+            <span style="font:600 14px 'JetBrains Mono',monospace; color:#33527D">05</span>
+            <h2 style="font:700 26px 'PT Serif',serif; margin:0">Штриховка и разрезы</h2>
+            <span style="flex:1"></span>
+            <span style="font:11px 'JetBrains Mono',monospace; color:#8a8578">ГОСТ 2.306-68</span>
+          </div>
+          <div style="border:1px solid #d8d3c4; background:#fff; padding:18px 20px; margin-bottom:18px">
+            <div style="font:italic 15px 'PT Sans',sans-serif; text-align:center; margin-bottom:14px">Втулка в продольном разрезе — обе зоны сечения штрихуются одинаково</div>
+            <svg width="100%" viewBox="40 35 340 130" style="display:block; max-width:560px; margin:0 auto">
+              <line x1="56" y1="100" x2="364" y2="100" stroke="#1a1a18" stroke-width="1" stroke-dasharray="24 5 3 5"></line>
+              <rect x="70" y="50" width="280" height="35" fill="url(#ht)" stroke="#1a1a18" stroke-width="2.4"></rect>
+              <rect x="70" y="115" width="280" height="35" fill="url(#ht)" stroke="#1a1a18" stroke-width="2.4"></rect>
+            </svg>
+            <div style="font:italic 13.5px 'PT Sans',sans-serif; text-align:center; color:#5b574b; margin-top:12px">отверстие между зонами не штрихуется</div>
+          </div>
+          <div style="display:grid; gap:0; margin-bottom:18px">
+            <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px dotted #d8d3c4"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">5.1</span><div style="font-size:15px; line-height:1.55">Металлы — тонкие линии под <b>45°</b>, шаг <b>9 px</b> (допустимо 6–15). Реализация — SVG-паттерн с шагом, зафиксированным в координатах листа (сниппет ниже).</div></div>
+            <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px dotted #d8d3c4"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">5.2</span><div style="font-size:15px; line-height:1.55">В пределах одной детали угол и шаг одинаковы на всех зонах сечения (общий pattern это гарантирует).</div></div>
+            <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px dotted #d8d3c4"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">5.3</span><div style="font-size:15px; line-height:1.55">Смежные детали — встречный наклон (135°) или другой шаг (6 px).</div></div>
+            <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px dotted #d8d3c4"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">5.4</span><div style="font-size:15px; line-height:1.55">Крепёж, валы, оси и рёбра жёсткости в продольном разрезе <b>не штрихуют</b>.</div></div>
+            <div style="display:flex; gap:12px; padding:8px 0"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">5.5</span><div style="font-size:15px; line-height:1.55">Тонкие стенки (&lt; 6 px) — сплошная заливка. Размерное число внутри штриховки — в «окне» (прямоугольник fill="#FFFFFF" под текстом).</div></div>
+          </div>
+          <div data-cw="3" style="border:1px solid #d8d3c4; background:#f3f0e7; margin-bottom:18px">
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:7px 14px; border-bottom:1px solid #d8d3c4">
+              <span style="font:12px 'JetBrains Mono',monospace; color:#6b675c">hatch.svg — паттерн штриховки</span>
+              <button onClick="{{ copy }}" style="font:11px 'JetBrains Mono',monospace; border:1px solid #1a1a18; background:transparent; color:#1a1a18; padding:3px 10px; cursor:pointer" style-hover="background:#1a1a18; color:#fdfcf8">копировать</button>
+            </div>
+            <pre style="margin:0; padding:14px 18px; overflow:auto; font:12.5px/1.6 'JetBrains Mono',monospace; color:#26241f">{{ codeHatch }}</pre>
+          </div>
+          <sc-if value="{{ notesOn }}" hint-placeholder-val="{{ true }}">
+            <div style="border:1px solid #9fb0c9; background:#eef2f8; padding:12px 16px; display:flex; gap:14px; align-items:baseline">
+              <span style="font:600 10px 'JetBrains Mono',monospace; letter-spacing:1.5px; color:#33527D; white-space:nowrap">ДЛЯ ИИ</span>
+              <span style="font:14px/1.55 'PT Sans',sans-serif">Один pattern на деталь. Для смежной детали объяви второй pattern (id="ht2", rotate(135)) — не меняй существующий.</span>
+            </div>
+          </sc-if>
+        </section>
+
+        <section id="s6" style="margin-top:56px">
+          <div style="display:flex; align-items:baseline; gap:14px; border-bottom:2.4px solid #1a1a18; padding-bottom:10px; margin-bottom:20px">
+            <span style="font:600 14px 'JetBrains Mono',monospace; color:#33527D">06</span>
+            <h2 style="font:700 26px 'PT Serif',serif; margin:0">Компоновка листа</h2>
+            <span style="flex:1"></span>
+            <span style="font:11px 'JetBrains Mono',monospace; color:#8a8578">ГОСТ 2.301 · 2.104 · 2.305</span>
+          </div>
+          <div style="border:1px solid #d8d3c4; background:#fff; padding:18px 20px; margin-bottom:18px">
+            <svg width="100%" viewBox="0 0 640 460" style="display:block; max-width:620px; margin:0 auto">
+              <rect x="10" y="10" width="594" height="420" fill="none" stroke="#1a1a18" stroke-width="1"></rect>
+              <rect x="50" y="20" width="544" height="400" fill="none" stroke="#1a1a18" stroke-width="2.4"></rect>
+              <rect x="224" y="310" width="370" height="110" fill="none" stroke="#1a1a18" stroke-width="2.4"></rect>
+              <line x1="224" y1="338" x2="594" y2="338" stroke="#1a1a18" stroke-width="1"></line>
+              <line x1="224" y1="366" x2="594" y2="366" stroke="#1a1a18" stroke-width="1"></line>
+              <line x1="304" y1="310" x2="304" y2="420" stroke="#1a1a18" stroke-width="1"></line>
+              <line x1="454" y1="310" x2="454" y2="420" stroke="#1a1a18" stroke-width="1"></line>
+              <text x="409" y="400" text-anchor="middle" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="14">Основная надпись 185×55</text>
+              <rect x="75" y="55" width="160" height="130" fill="none" stroke="#1a1a18" stroke-width="1" stroke-dasharray="6 4"></rect>
+              <text x="155" y="125" text-anchor="middle" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="14">Главный вид</text>
+              <rect x="285" y="55" width="150" height="130" fill="none" stroke="#1a1a18" stroke-width="1" stroke-dasharray="6 4"></rect>
+              <text x="360" y="125" text-anchor="middle" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="14">Вид слева</text>
+              <rect x="75" y="225" width="145" height="80" fill="none" stroke="#1a1a18" stroke-width="1" stroke-dasharray="6 4"></rect>
+              <text x="147" y="270" text-anchor="middle" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="14">Вид сверху</text>
+              <rect x="465" y="55" width="110" height="130" fill="none" stroke="#1a1a18" stroke-width="1" stroke-dasharray="6 4"></rect>
+              <text x="520" y="115" text-anchor="middle" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="14">таблица /</text>
+              <text x="520" y="133" text-anchor="middle" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="14">текст задания</text>
+              <line x1="235" y1="120" x2="285" y2="120" stroke="#1a1a18" stroke-width="1" stroke-dasharray="4 3"></line>
+              <line x1="147" y1="185" x2="147" y2="225" stroke="#1a1a18" stroke-width="1" stroke-dasharray="4 3"></line>
+              <line x1="10" y1="205" x2="50" y2="205" stroke="#1a1a18" stroke-width="1" marker-start="url(#ar)" marker-end="url(#ar)"></line>
+              <text x="30" y="199" text-anchor="middle" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="12">20</text>
+              <line x1="594" y1="205" x2="604" y2="205" stroke="#1a1a18" stroke-width="1"></line>
+              <text x="613" y="209" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="12">5</text>
+              <text x="560" y="17.5" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="12">5</text>
+            </svg>
+          </div>
+          <div style="display:grid; gap:0; margin-bottom:0">
+            <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px dotted #d8d3c4"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">6.1</span><div style="font-size:15px; line-height:1.55">Форматы: А4 — 210×297 мм, А3 — 297×420 мм; в px — ×3. Лист всегда с рамкой: поля слева <b>20 мм</b> (60 px), остальные <b>5 мм</b> (15 px), линия рамки — толстая.</div></div>
+            <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px dotted #d8d3c4"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">6.2</span><div style="font-size:15px; line-height:1.55">Основная надпись 185×55 мм — вплотную к рамке в правом нижнем углу.</div></div>
+            <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px dotted #d8d3c4"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">6.3</span><div style="font-size:15px; line-height:1.55">Метод первого угла (ГОСТ 2.305): вид сверху — <b>под</b> главным, вид слева — <b>справа</b> от главного. Виды строго в проекционной связи: общие габариты выровнены по осям.</div></div>
+            <div style="display:flex; gap:12px; padding:8px 0"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">6.4</span><div style="font-size:15px; line-height:1.55">Учебная страница (как эталон §9): текст задания → таблица данных → чертёж с подписью «Рис. N» по центру.</div></div>
+          </div>
+        </section>
+
+        <section id="s7" style="margin-top:56px">
+          <div style="display:flex; align-items:baseline; gap:14px; border-bottom:2.4px solid #1a1a18; padding-bottom:10px; margin-bottom:20px">
+            <span style="font:600 14px 'JetBrains Mono',monospace; color:#33527D">07</span>
+            <h2 style="font:700 26px 'PT Serif',serif; margin:0">Таблицы</h2>
+            <span style="flex:1"></span>
+            <span style="font:11px 'JetBrains Mono',monospace; color:#8a8578">ГОСТ 2.105</span>
+          </div>
+          <div style="display:grid; gap:0; margin-bottom:18px">
+            <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px dotted #d8d3c4"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">7.1</span><div style="font-size:15px; line-height:1.55">Внешняя рамка — <b>2.4 px</b>, внутренние линии — 1 px, border-collapse:collapse. Шрифт — 'PT Sans' 15 px.</div></div>
+            <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px dotted #d8d3c4"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">7.2</span><div style="font-size:15px; line-height:1.55">Надпись «Таблица N» — над таблицей справа; название — по центру, полужирным.</div></div>
+            <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px dotted #d8d3c4"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">7.3</span><div style="font-size:15px; line-height:1.55">Числа — по центру ячеек; заголовки строк — слева с отступом 14 px; высота строки ≥ 30 px.</div></div>
+            <div style="display:flex; gap:12px; padding:8px 0"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">7.4</span><div style="font-size:15px; line-height:1.55">Обозначения величин в заголовках — курсивом (<i>d</i>, <i>P</i>, <i>S</i>, <i>D</i>, <i>h</i>), как на чертеже. Образец — Таблица 10 в §9.</div></div>
+          </div>
+          <div data-cw="4" style="border:1px solid #d8d3c4; background:#f3f0e7; margin-bottom:0">
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:7px 14px; border-bottom:1px solid #d8d3c4">
+              <span style="font:12px 'JetBrains Mono',monospace; color:#6b675c">table.html — каркас таблицы</span>
+              <button onClick="{{ copy }}" style="font:11px 'JetBrains Mono',monospace; border:1px solid #1a1a18; background:transparent; color:#1a1a18; padding:3px 10px; cursor:pointer" style-hover="background:#1a1a18; color:#fdfcf8">копировать</button>
+            </div>
+            <pre style="margin:0; padding:14px 18px; overflow:auto; font:12.5px/1.6 'JetBrains Mono',monospace; color:#26241f">&lt;table style="border-collapse:collapse; border:2.4px solid #1A1A18;
+              font:15px 'PT Sans'; text-align:center; width:100%"&gt;
+  &lt;tr&gt;
+    &lt;td style="border:1px solid #1A1A18; padding:6px 14px;
+               text-align:left"&gt;Диаметр резьбы, &lt;i&gt;d&lt;/i&gt;&lt;/td&gt;
+    &lt;td style="border:1px solid #1A1A18; padding:6px 14px"&gt;20&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</pre>
+          </div>
+        </section>
+
+        <section id="s8" style="margin-top:56px">
+          <div style="display:flex; align-items:baseline; gap:14px; border-bottom:2.4px solid #1a1a18; padding-bottom:10px; margin-bottom:20px">
+            <span style="font:600 14px 'JetBrains Mono',monospace; color:#33527D">08</span>
+            <h2 style="font:700 26px 'PT Serif',serif; margin:0">Сборочные чертежи</h2>
+            <span style="flex:1"></span>
+            <span style="font:11px 'JetBrains Mono',monospace; color:#8a8578">ГОСТ 2.109</span>
+          </div>
+          <div style="border:1px solid #d8d3c4; background:#fff; padding:18px 20px; margin-bottom:18px">
+            <svg width="100%" viewBox="0 0 440 250" style="display:block; max-width:520px; margin:0 auto">
+              <line x1="170" y1="34" x2="170" y2="214" stroke="#1a1a18" stroke-width="1" stroke-dasharray="24 5 3 5"></line>
+              <rect x="60" y="80" width="220" height="45" fill="url(#ht)" stroke="#1a1a18" stroke-width="2.4"></rect>
+              <rect x="60" y="125" width="220" height="45" fill="url(#ht2)" stroke="#1a1a18" stroke-width="2.4"></rect>
+              <rect x="155" y="80" width="30" height="90" fill="#fff" stroke="#1a1a18" stroke-width="2.4"></rect>
+              <rect x="140" y="50" width="60" height="30" fill="#fff" stroke="#1a1a18" stroke-width="2.4"></rect>
+              <rect x="145" y="170" width="50" height="26" fill="#fff" stroke="#1a1a18" stroke-width="2.4"></rect>
+              <line x1="168" y1="60" x2="300" y2="28" stroke="#1a1a18" stroke-width="1" marker-start="url(#dt)"></line>
+              <line x1="300" y1="28" x2="336" y2="28" stroke="#1a1a18" stroke-width="1"></line>
+              <text x="318" y="22" text-anchor="middle" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="21">1</text>
+              <line x1="168" y1="184" x2="300" y2="216" stroke="#1a1a18" stroke-width="1" marker-start="url(#dt)"></line>
+              <line x1="300" y1="216" x2="336" y2="216" stroke="#1a1a18" stroke-width="1"></line>
+              <text x="318" y="210" text-anchor="middle" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="21">2</text>
+              <line x1="100" y1="100" x2="356" y2="88" stroke="#1a1a18" stroke-width="1" marker-start="url(#dt)"></line>
+              <line x1="356" y1="88" x2="392" y2="88" stroke="#1a1a18" stroke-width="1"></line>
+              <text x="374" y="82" text-anchor="middle" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="21">3</text>
+              <line x1="100" y1="150" x2="356" y2="150" stroke="#1a1a18" stroke-width="1" marker-start="url(#dt)"></line>
+              <line x1="356" y1="150" x2="392" y2="150" stroke="#1a1a18" stroke-width="1"></line>
+              <text x="374" y="144" text-anchor="middle" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="21">4</text>
+            </svg>
+          </div>
+          <div style="display:grid; gap:0">
+            <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px dotted #d8d3c4"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">8.1</span><div style="font-size:15px; line-height:1.55">Каждой детали — номер позиции на полке-выноске: точка (marker) на детали → тонкая линия → горизонтальная полка 30–40 px → номер над полкой.</div></div>
+            <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px dotted #d8d3c4"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">8.2</span><div style="font-size:15px; line-height:1.55">Шрифт позиций — <b>21 px</b>, в 1,4 раза крупнее размерных чисел. Полки выравнивать в колонку или ряд; линии-выноски не пересекаются.</div></div>
+            <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px dotted #d8d3c4"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">8.3</span><div style="font-size:15px; line-height:1.55">Болт (1) и гайка (2) в продольном разрезе не штрихуются; смежные пластины (3, 4) — встречная штриховка.</div></div>
+            <div style="display:flex; gap:12px; padding:8px 0"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D; padding-top:3px">8.4</span><div style="font-size:15px; line-height:1.55">Спецификация — таблицей по правилам §7: Поз. / Обозначение / Наименование / Кол.</div></div>
+          </div>
+        </section>
+
+        <section id="s9" style="margin-top:56px">
+          <div style="display:flex; align-items:baseline; gap:14px; border-bottom:2.4px solid #1a1a18; padding-bottom:10px; margin-bottom:20px">
+            <span style="font:600 14px 'JetBrains Mono',monospace; color:#33527D">09</span>
+            <h2 style="font:700 26px 'PT Serif',serif; margin:0">Эталонный пример — Рис. 51</h2>
+            <span style="flex:1"></span>
+            <span style="font:11px 'JetBrains Mono',monospace; color:#8a8578">болт М20×100</span>
+          </div>
+          <p style="font-size:15.5px; line-height:1.65; margin:0 0 16px; text-wrap:pretty">Страница учебного задания, собранная строго по разделам 01–07: текст, таблица данных, три изображения болта — главный вид с размерами, вид слева и наглядное изображение с надписями-выносками.</p>
+          <div style="border:1px solid #d8d3c4; background:#fff; padding:30px 36px">
+            <p style="font:16px/1.6 'PT Serif',serif; margin:0; text-align:justify">Пользуясь таблицей 10 и рисунком 51, выполните эскиз болта с шестигранной головкой и нанесите размеры: диаметр <i>d</i> резьбы равен 20&nbsp;мм, длина <i>l</i> стержня болта — 100&nbsp;мм, длина <i>l₀</i> нарезанной части — 46&nbsp;мм, высота фаски — 2,5&nbsp;мм.</p>
+            <div style="font:italic 700 15px 'PT Sans',sans-serif; text-align:right; margin:18px 0 6px">Таблица 10</div>
+            <div style="font:700 16px 'PT Sans',sans-serif; text-align:center; margin-bottom:10px">Основные размеры болтов с шестигранной головкой (в мм)</div>
+            <table style="border-collapse:collapse; border:2.4px solid #1a1a18; width:100%; font:15px 'PT Sans',sans-serif; text-align:center">
+              <tbody>
+                <tr>
+                  <td style="border:1px solid #1a1a18; padding:7px 14px; text-align:left; width:34%">Диаметр резьбы, <i>d</i></td>
+                  <td style="border:1px solid #1a1a18; padding:7px 10px">8</td><td style="border:1px solid #1a1a18; padding:7px 10px">10</td><td style="border:1px solid #1a1a18; padding:7px 10px">12</td><td style="border:1px solid #1a1a18; padding:7px 10px">16</td><td style="border:1px solid #1a1a18; padding:7px 10px">20</td><td style="border:1px solid #1a1a18; padding:7px 10px">30</td><td style="border:1px solid #1a1a18; padding:7px 10px">42</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #1a1a18; padding:7px 14px; text-align:left">Шаг резьбы, <i>P</i> (крупный)</td>
+                  <td style="border:1px solid #1a1a18; padding:7px 10px">1,25</td><td style="border:1px solid #1a1a18; padding:7px 10px">1,5</td><td style="border:1px solid #1a1a18; padding:7px 10px">1,75</td><td style="border:1px solid #1a1a18; padding:7px 10px">2</td><td style="border:1px solid #1a1a18; padding:7px 10px">2,5</td><td style="border:1px solid #1a1a18; padding:7px 10px">3,5</td><td style="border:1px solid #1a1a18; padding:7px 10px">4,5</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #1a1a18; padding:7px 14px; text-align:left">Размер под ключ, <i>S</i></td>
+                  <td style="border:1px solid #1a1a18; padding:7px 10px">13</td><td style="border:1px solid #1a1a18; padding:7px 10px">17</td><td style="border:1px solid #1a1a18; padding:7px 10px">19</td><td style="border:1px solid #1a1a18; padding:7px 10px">24</td><td style="border:1px solid #1a1a18; padding:7px 10px">30</td><td style="border:1px solid #1a1a18; padding:7px 10px">46</td><td style="border:1px solid #1a1a18; padding:7px 10px">65</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #1a1a18; padding:7px 14px; text-align:left">Диаметр описанной окружности, <i>D</i></td>
+                  <td style="border:1px solid #1a1a18; padding:7px 10px">14,2</td><td style="border:1px solid #1a1a18; padding:7px 10px">18,7</td><td style="border:1px solid #1a1a18; padding:7px 10px">20,9</td><td style="border:1px solid #1a1a18; padding:7px 10px">26,5</td><td style="border:1px solid #1a1a18; padding:7px 10px">33,3</td><td style="border:1px solid #1a1a18; padding:7px 10px">50,9</td><td style="border:1px solid #1a1a18; padding:7px 10px">72,1</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #1a1a18; padding:7px 14px; text-align:left">Высота головки, <i>h</i></td>
+                  <td style="border:1px solid #1a1a18; padding:7px 10px">5,5</td><td style="border:1px solid #1a1a18; padding:7px 10px">7</td><td style="border:1px solid #1a1a18; padding:7px 10px">8</td><td style="border:1px solid #1a1a18; padding:7px 10px">10</td><td style="border:1px solid #1a1a18; padding:7px 10px">13</td><td style="border:1px solid #1a1a18; padding:7px 10px">19</td><td style="border:1px solid #1a1a18; padding:7px 10px">26</td>
+                </tr>
+              </tbody>
+            </table>
+            <svg width="100%" viewBox="0 0 980 445" style="display:block; margin-top:14px">
+              <g transform="translate(78,168)">
+                <line x1="-14" y1="0" x2="352" y2="0" stroke="#1a1a18" stroke-width="1" stroke-dasharray="24 5 3 5"></line>
+                <path d="M 0,-43 L 6,-50 L 39,-50 L 39,50 L 6,50 L 0,43 Z" fill="none" stroke="#1a1a18" stroke-width="2.4"></path>
+                <line x1="0" y1="-25" x2="39" y2="-25" stroke="#1a1a18" stroke-width="2.4"></line>
+                <line x1="0" y1="25" x2="39" y2="25" stroke="#1a1a18" stroke-width="2.4"></line>
+                <path d="M 7,-49 Q 14,-37 7,-27" fill="none" stroke="#1a1a18" stroke-width="2.4"></path>
+                <path d="M 12,-24 Q 5,0 12,24" fill="none" stroke="#1a1a18" stroke-width="2.4"></path>
+                <path d="M 7,49 Q 14,37 7,27" fill="none" stroke="#1a1a18" stroke-width="2.4"></path>
+                <path d="M 39,-30 L 331.5,-30 L 339,-22.5 L 339,22.5 L 331.5,30 L 39,30" fill="none" stroke="#1a1a18" stroke-width="2.4"></path>
+                <line x1="201" y1="-30" x2="201" y2="30" stroke="#1a1a18" stroke-width="2.4"></line>
+                <line x1="201" y1="-25.5" x2="335" y2="-25.5" stroke="#1a1a18" stroke-width="1"></line>
+                <line x1="201" y1="25.5" x2="335" y2="25.5" stroke="#1a1a18" stroke-width="1"></line>
+                <line x1="0" y1="-43" x2="0" y2="-66" stroke="#1a1a18" stroke-width="1"></line>
+                <line x1="0" y1="-43" x2="13" y2="-62" stroke="#1a1a18" stroke-width="1"></line>
+                <path d="M 0,-58 A 15 15 0 0 1 7.7,-55.5" fill="none" stroke="#1a1a18" stroke-width="1"></path>
+                <text x="-4" y="-70" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="14">≈30°</text>
+                <line x1="0" y1="-43" x2="-20" y2="-43" stroke="#1a1a18" stroke-width="1"></line>
+                <line x1="0" y1="43" x2="-20" y2="43" stroke="#1a1a18" stroke-width="1"></line>
+                <line x1="-15" y1="-43" x2="-15" y2="43" stroke="#1a1a18" stroke-width="1" marker-start="url(#ar)" marker-end="url(#ar)"></line>
+                <text x="-21" y="0" text-anchor="middle" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="13" transform="rotate(-90 -21 0)">D₁=0,95S</text>
+                <line x1="0" y1="46" x2="0" y2="95" stroke="#1a1a18" stroke-width="1"></line>
+                <line x1="39" y1="53" x2="39" y2="135" stroke="#1a1a18" stroke-width="1"></line>
+                <line x1="0" y1="90" x2="39" y2="90" stroke="#1a1a18" stroke-width="1"></line>
+                <line x1="-15" y1="90" x2="0" y2="90" stroke="#1a1a18" stroke-width="1" marker-end="url(#ar)"></line>
+                <line x1="39" y1="90" x2="54" y2="90" stroke="#1a1a18" stroke-width="1" marker-start="url(#ar)"></line>
+                <text x="19.5" y="84" text-anchor="middle" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="15">h</text>
+                <line x1="201" y1="33" x2="201" y2="105" stroke="#1a1a18" stroke-width="1"></line>
+                <line x1="339" y1="33" x2="339" y2="135" stroke="#1a1a18" stroke-width="1"></line>
+                <line x1="201" y1="100" x2="339" y2="100" stroke="#1a1a18" stroke-width="1" marker-start="url(#ar)" marker-end="url(#ar)"></line>
+                <text x="270" y="94" text-anchor="middle" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="15">l₀</text>
+                <line x1="39" y1="130" x2="339" y2="130" stroke="#1a1a18" stroke-width="1" marker-start="url(#ar)" marker-end="url(#ar)"></line>
+                <text x="189" y="124" text-anchor="middle" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="15">l</text>
+                <line x1="222" y1="-30" x2="222" y2="30" stroke="#1a1a18" stroke-width="1" marker-start="url(#ar)" marker-end="url(#ar)"></line>
+                <text x="216" y="0" text-anchor="middle" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="15" transform="rotate(-90 216 0)">d</text>
+                <line x1="331.5" y1="-33" x2="331.5" y2="-57" stroke="#1a1a18" stroke-width="1"></line>
+                <line x1="339" y1="-33" x2="339" y2="-57" stroke="#1a1a18" stroke-width="1"></line>
+                <line x1="331.5" y1="-52" x2="339" y2="-52" stroke="#1a1a18" stroke-width="1"></line>
+                <line x1="316" y1="-52" x2="331.5" y2="-52" stroke="#1a1a18" stroke-width="1" marker-end="url(#ar)"></line>
+                <line x1="339" y1="-52" x2="354" y2="-52" stroke="#1a1a18" stroke-width="1" marker-start="url(#ar)"></line>
+                <text x="335" y="-61" text-anchor="middle" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="14">c×45°</text>
+              </g>
+              <g transform="translate(548,168)">
+                <line x1="-58" y1="0" x2="58" y2="0" stroke="#1a1a18" stroke-width="1" stroke-dasharray="24 5 3 5"></line>
+                <line x1="0" y1="-58" x2="0" y2="58" stroke="#1a1a18" stroke-width="1" stroke-dasharray="24 5 3 5"></line>
+                <polygon points="0,-50 45,-25 45,25 0,50 -45,25 -45,-25" fill="none" stroke="#1a1a18" stroke-width="2.4"></polygon>
+                <circle cx="0" cy="0" r="42.8" fill="none" stroke="#1a1a18" stroke-width="2.4"></circle>
+                <line x1="-45" y1="29" x2="-45" y2="77" stroke="#1a1a18" stroke-width="1"></line>
+                <line x1="45" y1="29" x2="45" y2="77" stroke="#1a1a18" stroke-width="1"></line>
+                <line x1="-45" y1="72" x2="45" y2="72" stroke="#1a1a18" stroke-width="1" marker-start="url(#ar)" marker-end="url(#ar)"></line>
+                <text x="0" y="66" text-anchor="middle" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="15">S</text>
+                <line x1="4" y1="-50" x2="72" y2="-50" stroke="#1a1a18" stroke-width="1"></line>
+                <line x1="4" y1="50" x2="72" y2="50" stroke="#1a1a18" stroke-width="1"></line>
+                <line x1="66" y1="-50" x2="66" y2="50" stroke="#1a1a18" stroke-width="1" marker-start="url(#ar)" marker-end="url(#ar)"></line>
+                <text x="59" y="0" text-anchor="middle" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="15" transform="rotate(-90 59 0)">D</text>
+              </g>
+              <g transform="translate(695,318) rotate(-35)">
+                <path d="M 20,-30 L 226,-30 L 233,-24 A 10.5 24 0 0 1 233,24 L 226,30 L 20,30 Z" fill="#fff" stroke="#1a1a18" stroke-width="2.4"></path>
+                <line x1="118" y1="-30" x2="118" y2="30" stroke="#1a1a18" stroke-width="2.4"></line>
+                <line x1="126" y1="-29" x2="120" y2="29" stroke="#1a1a18" stroke-width="1"></line>
+                <line x1="135" y1="-29" x2="129" y2="29" stroke="#1a1a18" stroke-width="1"></line>
+                <line x1="144" y1="-29" x2="138" y2="29" stroke="#1a1a18" stroke-width="1"></line>
+                <line x1="153" y1="-29" x2="147" y2="29" stroke="#1a1a18" stroke-width="1"></line>
+                <line x1="162" y1="-29" x2="156" y2="29" stroke="#1a1a18" stroke-width="1"></line>
+                <line x1="171" y1="-29" x2="165" y2="29" stroke="#1a1a18" stroke-width="1"></line>
+                <line x1="180" y1="-29" x2="174" y2="29" stroke="#1a1a18" stroke-width="1"></line>
+                <line x1="189" y1="-29" x2="183" y2="29" stroke="#1a1a18" stroke-width="1"></line>
+                <line x1="198" y1="-29" x2="192" y2="29" stroke="#1a1a18" stroke-width="1"></line>
+                <line x1="207" y1="-29" x2="201" y2="29" stroke="#1a1a18" stroke-width="1"></line>
+                <line x1="216" y1="-29" x2="210" y2="29" stroke="#1a1a18" stroke-width="1"></line>
+                <line x1="225" y1="-29" x2="219" y2="29" stroke="#1a1a18" stroke-width="1"></line>
+                <polygon points="-20,-25 0,-50 28,-50 48,-25 48,25 28,50 0,50 -20,25" fill="#fff" stroke="#1a1a18" stroke-width="2.4"></polygon>
+                <polygon points="0,-50 20,-25 20,25 0,50 -20,25 -20,-25" fill="none" stroke="#1a1a18" stroke-width="2.4"></polygon>
+                <line x1="20" y1="-25" x2="48" y2="-25" stroke="#1a1a18" stroke-width="2.4"></line>
+                <line x1="20" y1="25" x2="48" y2="25" stroke="#1a1a18" stroke-width="2.4"></line>
+                <ellipse cx="0" cy="0" rx="19" ry="42.8" fill="none" stroke="#1a1a18" stroke-width="1"></ellipse>
+              </g>
+              <text x="884" y="112" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="16">Резьба</text>
+              <line x1="884" y1="117" x2="937" y2="117" stroke="#1a1a18" stroke-width="1"></line>
+              <line x1="890" y1="120" x2="820" y2="196" stroke="#1a1a18" stroke-width="1" marker-end="url(#ar)"></line>
+              <text x="856" y="342" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="16">Стержень</text>
+              <line x1="856" y1="347" x2="929" y2="347" stroke="#1a1a18" stroke-width="1"></line>
+              <line x1="860" y1="344" x2="788" y2="298" stroke="#1a1a18" stroke-width="1" marker-end="url(#ar)"></line>
+              <text x="556" y="262" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="16">Фаска</text>
+              <line x1="556" y1="267" x2="605" y2="267" stroke="#1a1a18" stroke-width="1"></line>
+              <line x1="600" y1="270" x2="660" y2="295" stroke="#1a1a18" stroke-width="1" marker-end="url(#ar)"></line>
+              <text x="628" y="412" fill="#1a1a18" font-family="PT Sans" font-style="italic" font-size="16">Головка</text>
+              <line x1="628" y1="417" x2="691" y2="417" stroke="#1a1a18" stroke-width="1"></line>
+              <line x1="668" y1="408" x2="726" y2="357" stroke="#1a1a18" stroke-width="1" marker-end="url(#ar)"></line>
+            </svg>
+            <div style="font:700 16px 'PT Serif',serif; text-align:center; margin-top:6px">Рис. 51</div>
+          </div>
+          <sc-if value="{{ notesOn }}" hint-placeholder-val="{{ true }}">
+            <div style="border:1px solid #9fb0c9; background:#eef2f8; padding:12px 16px; display:flex; gap:14px; align-items:baseline; margin-top:18px">
+              <span style="font:600 10px 'JetBrains Mono',monospace; letter-spacing:1.5px; color:#33527D; white-space:nowrap">ДЛЯ ИИ</span>
+              <span style="font:14px/1.55 'PT Sans',sans-serif">Эталон — референс структуры: порядок групп &lt;g&gt; (вид = группа с translate), приёмы (общая выносная, стрелки снаружи у малых размеров), а не конкретные координаты.</span>
+            </div>
+          </sc-if>
+        </section>
+
+        <sc-if value="{{ pyOn }}" hint-placeholder-val="{{ true }}">
+        <section id="s10" style="margin-top:56px">
+          <div style="display:flex; align-items:baseline; gap:14px; border-bottom:2.4px solid #1a1a18; padding-bottom:10px; margin-bottom:20px">
+            <span style="font:600 14px 'JetBrains Mono',monospace; color:#33527D">10</span>
+            <h2 style="font:700 26px 'PT Serif',serif; margin:0">Python-генератор</h2>
+            <span style="flex:1"></span>
+            <span style="font:11px 'JetBrains Mono',monospace; color:#8a8578">eskd.py · stdlib</span>
+          </div>
+          <p style="font-size:15.5px; line-height:1.65; margin:0 0 16px; text-wrap:pretty">Когда чертёж параметрический, SVG удобнее собирать кодом. Модуль без зависимостей воспроизводит те же константы; пример в конце строит вид слева болта М20.</p>
+          <div data-cw="5" style="border:1px solid #d8d3c4; background:#f3f0e7; margin-bottom:0">
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:7px 14px; border-bottom:1px solid #d8d3c4">
+              <span style="font:12px 'JetBrains Mono',monospace; color:#6b675c">eskd.py</span>
+              <button onClick="{{ copy }}" style="font:11px 'JetBrains Mono',monospace; border:1px solid #1a1a18; background:transparent; color:#1a1a18; padding:3px 10px; cursor:pointer" style-hover="background:#1a1a18; color:#fdfcf8">копировать</button>
+            </div>
+            <pre style="margin:0; padding:14px 18px; overflow:auto; font:12.5px/1.6 'JetBrains Mono',monospace; color:#26241f">{{ codePy }}</pre>
+          </div>
+        </section>
+        </sc-if>
+
+        <section id="s11" style="margin-top:56px">
+          <div style="display:flex; align-items:baseline; gap:14px; border-bottom:2.4px solid #1a1a18; padding-bottom:10px; margin-bottom:20px">
+            <span style="font:600 14px 'JetBrains Mono',monospace; color:#33527D">11</span>
+            <h2 style="font:700 26px 'PT Serif',serif; margin:0">Промпт для ИИ</h2>
+            <span style="flex:1"></span>
+            <span style="font:11px 'JetBrains Mono',monospace; color:#8a8578">шаблон · подставь ДАНО</span>
+          </div>
+          <div data-cw="6" style="border:1px solid #d8d3c4; background:#f3f0e7; margin-bottom:18px">
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:7px 14px; border-bottom:1px solid #d8d3c4">
+              <span style="font:12px 'JetBrains Mono',monospace; color:#6b675c">prompt.txt — системный промпт чертёжника</span>
+              <button onClick="{{ copy }}" style="font:11px 'JetBrains Mono',monospace; border:1px solid #1a1a18; background:transparent; color:#1a1a18; padding:3px 10px; cursor:pointer" style-hover="background:#1a1a18; color:#fdfcf8">копировать</button>
+            </div>
+            <pre style="margin:0; padding:14px 18px; overflow:auto; font:12.5px/1.6 'JetBrains Mono',monospace; color:#26241f">{{ codePrompt }}</pre>
+          </div>
+          <sc-if value="{{ notesOn }}" hint-placeholder-val="{{ true }}">
+            <div style="border:1px solid #9fb0c9; background:#eef2f8; padding:12px 16px; display:flex; gap:14px; align-items:baseline">
+              <span style="font:600 10px 'JetBrains Mono',monospace; letter-spacing:1.5px; color:#33527D; white-space:nowrap">ДЛЯ ИИ</span>
+              <span style="font:14px/1.55 'PT Sans',sans-serif">Подставь ДАНО и отправь промпт целиком. Корректный ответ содержит ровно один блок svg и ничего больше.</span>
+            </div>
+          </sc-if>
+        </section>
+
+        <section id="s12" style="margin-top:56px">
+          <div style="display:flex; align-items:baseline; gap:14px; border-bottom:2.4px solid #1a1a18; padding-bottom:10px; margin-bottom:20px">
+            <span style="font:600 14px 'JetBrains Mono',monospace; color:#33527D">12</span>
+            <h2 style="font:700 26px 'PT Serif',serif; margin:0">Чек-лист самопроверки</h2>
+            <span style="flex:1"></span>
+            <span style="font:11px 'JetBrains Mono',monospace; color:#8a8578">запускать перед выдачей SVG</span>
+          </div>
+          <div style="display:grid; gap:0">
+            <div style="display:grid; grid-template-columns:58px 1fr 300px; gap:14px; padding:9px 0; border-bottom:1px dotted #d8d3c4; align-items:baseline"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D">C-01</span><div style="font-size:15px; line-height:1.5">Толщины линий — только 2.4 / 1 / 3.6</div><span style="font:11.5px 'JetBrains Mono',monospace; color:#8a8578">множество stroke-width ⊆ {2.4, 1, 3.6}</span></div>
+            <div style="display:grid; grid-template-columns:58px 1fr 300px; gap:14px; padding:9px 0; border-bottom:1px dotted #d8d3c4; align-items:baseline"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D">C-02</span><div style="font-size:15px; line-height:1.5">Единственный цвет #1A1A18, фон белый</div><span style="font:11.5px 'JetBrains Mono',monospace; color:#8a8578">grep по fill= и stroke=</span></div>
+            <div style="display:grid; grid-template-columns:58px 1fr 300px; gap:14px; padding:9px 0; border-bottom:1px dotted #d8d3c4; align-items:baseline"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D">C-03</span><div style="font-size:15px; line-height:1.5">Осевые — dasharray "24 5 3 5", выход за контур 6–15 px</div><span style="font:11.5px 'JetBrains Mono',monospace; color:#8a8578">сравни концы осей с bbox контура</span></div>
+            <div style="display:grid; grid-template-columns:58px 1fr 300px; gap:14px; padding:9px 0; border-bottom:1px dotted #d8d3c4; align-items:baseline"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D">C-04</span><div style="font-size:15px; line-height:1.5">Выносные выходят за размерную на 3–6 px</div><span style="font:11.5px 'JetBrains Mono',monospace; color:#8a8578">y-конец выносной − y размерной</span></div>
+            <div style="display:grid; grid-template-columns:58px 1fr 300px; gap:14px; padding:9px 0; border-bottom:1px dotted #d8d3c4; align-items:baseline"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D">C-05</span><div style="font-size:15px; line-height:1.5">Все стрелки — marker url(#ar), других стрелок нет</div><span style="font:11.5px 'JetBrains Mono',monospace; color:#8a8578">нет path-треугольников вне defs</span></div>
+            <div style="display:grid; grid-template-columns:58px 1fr 300px; gap:14px; padding:9px 0; border-bottom:1px dotted #d8d3c4; align-items:baseline"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D">C-06</span><div style="font-size:15px; line-height:1.5">Размерные числа над линией с зазором 3–4 px, ничего не пересекают</div><span style="font:11.5px 'JetBrains Mono',monospace; color:#8a8578">bbox текста ∩ линии = ∅</span></div>
+            <div style="display:grid; grid-template-columns:58px 1fr 300px; gap:14px; padding:9px 0; border-bottom:1px dotted #d8d3c4; align-items:baseline"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D">C-07</span><div style="font-size:15px; line-height:1.5">От контура до первой размерной ≥ 30 px, между размерными ≥ 21 px</div><span style="font:11.5px 'JetBrains Mono',monospace; color:#8a8578">разности координат параллельных линий</span></div>
+            <div style="display:grid; grid-template-columns:58px 1fr 300px; gap:14px; padding:9px 0; border-bottom:1px dotted #d8d3c4; align-items:baseline"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D">C-08</span><div style="font-size:15px; line-height:1.5">⌀ / R / М / ×45° расставлены; десятичная запятая; нигде нет «мм»</div><span style="font:11.5px 'JetBrains Mono',monospace; color:#8a8578">grep текстовых узлов</span></div>
+            <div style="display:grid; grid-template-columns:58px 1fr 300px; gap:14px; padding:9px 0; border-bottom:1px dotted #d8d3c4; align-items:baseline"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D">C-09</span><div style="font-size:15px; line-height:1.5">Штриховка 45°/шаг 9; смежные детали различаются; крепёж не штрихован</div><span style="font:11.5px 'JetBrains Mono',monospace; color:#8a8578">по одному pattern на деталь</span></div>
+            <div style="display:grid; grid-template-columns:58px 1fr 300px; gap:14px; padding:9px 0; border-bottom:1px dotted #d8d3c4; align-items:baseline"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D">C-10</span><div style="font-size:15px; line-height:1.5">Резьба: тонкие впадины на 0,85·d, толстая граница резьбы</div><span style="font:11.5px 'JetBrains Mono',monospace; color:#8a8578">отношение диаметров ≈ 0,85</span></div>
+            <div style="display:grid; grid-template-columns:58px 1fr 300px; gap:14px; padding:9px 0; border-bottom:1px dotted #d8d3c4; align-items:baseline"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D">C-11</span><div style="font-size:15px; line-height:1.5">Виды в проекционной связи: вид слева справа, вид сверху снизу</div><span style="font:11.5px 'JetBrains Mono',monospace; color:#8a8578">равенство габаритов по общей оси</span></div>
+            <div style="display:grid; grid-template-columns:58px 1fr 300px; gap:14px; padding:9px 0; align-items:baseline"><span style="font:600 12px 'JetBrains Mono',monospace; color:#33527D">C-12</span><div style="font-size:15px; line-height:1.5">fill="none" на контурах; текст без scale; координаты кратны 0,5</div><span style="font:11.5px 'JetBrains Mono',monospace; color:#8a8578">grep transform= вне rotate</span></div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+    <div style="border-top:2.4px solid #1a1a18; padding:14px 52px; display:flex; justify-content:space-between; gap:16px; font:11px 'JetBrains Mono',monospace; letter-spacing:1px; color:#8a8578">
+      <span>ДОКУМЕНТ РАССЧИТАН НА ЧТЕНИЕ ИИ-АГЕНТОМ · РАЗДЕЛЫ 01–12 АВТОНОМНЫ</span>
+      <span>GITHUB PAGES · ОДИН ФАЙЛ</span>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;showAiNotes&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Содержимое&quot;},
+  &quot;showPython&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Содержимое&quot;}
+}">
+class Component extends DCLogic {
+  renderVals() {
+    const copy = async (e) => {
+      const btn = e.currentTarget;
+      const wrap = btn.closest("[data-cw]");
+      const pre = wrap ? wrap.querySelector("pre") : null;
+      if (!pre) return;
+      try { await navigator.clipboard.writeText(pre.innerText); } catch (err) {}
+      const old = btn.textContent;
+      btn.textContent = "✓ скопировано";
+      setTimeout(() => { btn.textContent = old; }, 1400);
+    };
+    const codeDim = `<svg viewBox="0 0 240 130" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="ar" orient="auto-start-reverse" markerUnits="userSpaceOnUse"
+            markerWidth="26" markerHeight="10" viewBox="-13 -5 26 10" refX="0" refY="0">
+      <path d="M0,0 L-12,2.4 L-12,-2.4 Z" fill="#1A1A18"/>
+    </marker>
+  </defs>
+  <!-- контур детали: толстая -->
+  <line x1="30" y1="96" x2="210" y2="96" stroke="#1A1A18" stroke-width="2.4"/>
+  <!-- выносные: зазор от контура 3, выход за размерную 6 -->
+  <line x1="30"  y1="92" x2="30"  y2="34" stroke="#1A1A18" stroke-width="1"/>
+  <line x1="210" y1="92" x2="210" y2="34" stroke="#1A1A18" stroke-width="1"/>
+  <!-- размерная линия со стрелками -->
+  <line x1="30" y1="40" x2="210" y2="40" stroke="#1A1A18" stroke-width="1"
+        marker-start="url(#ar)" marker-end="url(#ar)"/>
+  <!-- размерное число: по центру, зазор 4 -->
+  <text x="120" y="36" text-anchor="middle" fill="#1A1A18"
+        font-family="PT Sans" font-style="italic" font-size="15">60</text>
+</svg>`;
+    const codeHatch = `<pattern id="ht" width="9" height="9" patternUnits="userSpaceOnUse"
+         patternTransform="rotate(45)">
+  <line x2="9" stroke="#1A1A18" stroke-width="1"/>
+</pattern>
+
+<!-- зона сечения: заливка паттерном + толстый контур -->
+<path d="M 60,40 H 340 V 75 H 60 Z" fill="url(#ht)"
+      stroke="#1A1A18" stroke-width="2.4"/>
+
+<!-- смежная деталь: копия паттерна с rotate(135) или шагом 6 -->`;
+    const codePy = `# eskd.py — примитивы чертежей ЕСКД → SVG · 1 мм = MM px
+import math
+
+MM   = 3
+INK  = "#1A1A18"
+THICK, THIN = 2.4, 1.0
+AXIS, HID   = "24 5 3 5", "12 4"   # осевая, штриховая
+FONT = "italic 15px 'PT Sans'"
+
+DEFS = (
+ '<defs><marker id="ar" orient="auto-start-reverse" markerUnits="userSpaceOnUse"'
+ ' markerWidth="26" markerHeight="10" viewBox="-13 -5 26 10" refX="0" refY="0">'
+ '<path d="M0,0 L-12,2.4 L-12,-2.4 Z" fill="%s"/></marker>'
+ '<pattern id="ht" width="9" height="9" patternUnits="userSpaceOnUse"'
+ ' patternTransform="rotate(45)"><line x2="9" stroke="%s" stroke-width="1"/>'
+ '</pattern></defs>' % (INK, INK)
+)
+
+def svg(w_mm, h_mm, *body):
+    return ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 %g %g">%s%s</svg>'
+            % (w_mm * MM, h_mm * MM, DEFS, "".join(body)))
+
+def ln(x1, y1, x2, y2, w=THICK, dash="", arrows=False):
+    d = ' stroke-dasharray="%s"' % dash if dash else ""
+    a = ' marker-start="url(#ar)" marker-end="url(#ar)"' if arrows else ""
+    return ('<line x1="%g" y1="%g" x2="%g" y2="%g" stroke="%s" stroke-width="%g"%s%s/>'
+            % (x1, y1, x2, y2, INK, w, d, a))
+
+def txt(x, y, s, rot=0):
+    r = ' transform="rotate(%g %g %g)"' % (rot, x, y) if rot else ""
+    return ('<text x="%g" y="%g" text-anchor="middle" fill="%s" style="font:%s"%s>%s</text>'
+            % (x, y, INK, FONT, r, s))
+
+def dim_h(x1, x2, y, label, y_contour):            # горизонтальный размер
+    return (ln(x1, y_contour + 3, x1, y + 5, THIN) + ln(x2, y_contour + 3, x2, y + 5, THIN)
+            + ln(x1, y, x2, y, THIN, arrows=True) + txt((x1 + x2) / 2, y - 4, label))
+
+def dim_v(x, y1, y2, label, x_contour):            # вертикальный размер
+    return (ln(x_contour + 3, y1, x + 5, y1, THIN) + ln(x_contour + 3, y2, x + 5, y2, THIN)
+            + ln(x, y1, x, y2, THIN, arrows=True) + txt(x - 6, (y1 + y2) / 2, label, rot=-90))
+
+def hexagon(cx, cy, r_mm):                          # вершины сверху и снизу
+    p = " ".join("%.1f,%.1f" % (cx + r_mm*MM*math.sin(math.pi*k/3),
+                                cy - r_mm*MM*math.cos(math.pi*k/3)) for k in range(6))
+    return '<polygon points="%s" fill="none" stroke="%s" stroke-width="%g"/>' % (p, INK, THICK)
+
+if __name__ == "__main__":                          # вид слева болта М20 (Рис. 51)
+    S, D, D1, cx, cy = 30, 33.3, 28.5, 88, 76       # мм · центр в px
+    fig = (ln(cx-58, cy, cx+58, cy, THIN, AXIS) + ln(cx, cy-58, cx, cy+58, THIN, AXIS)
+           + hexagon(cx, cy, D/2)
+           + '<circle cx="%g" cy="%g" r="%g" fill="none" stroke="%s" stroke-width="%g"/>'
+             % (cx, cy, D1/2*MM, INK, THICK)
+           + dim_h(cx - S/2*MM, cx + S/2*MM, cy + 72, "S", cy + 50)
+           + dim_v(cx + 66, cy - 50, cy + 50, "D", cx + 45))
+    open("bolt_end_view.svg", "w", encoding="utf-8").write(svg(64, 52, fig))`;
+    const codePrompt = `ТЫ — ИНЖЕНЕР-ЧЕРТЁЖНИК. Построй чертёж детали в inline SVG по ЕСКД.
+
+ВХОД
+  деталь: {ДЕТАЛЬ}          ← напр. «болт М20×100 с шестигранной головкой»
+  размеры, мм: {РАЗМЕРЫ}    ← напр. d=20, l=100, l0=46, c=2,5
+
+КАНВА
+  1 мм = 3 px · viewBox по габаритам с полями ≥ 45 px · ось Y вниз
+  фон белый · единственный цвет #1A1A18 · fill="none" всюду,
+  кроме штриховки url(#ht) и стрелок marker url(#ar)
+
+КОНСТАНТЫ (px)
+  толстая 2.4 · тонкая 1 · штриховая "12 4" · осевая "24 5 3 5"
+  шаг штриховки 9 · стрелка 12×4.8 · шрифт italic 15px 'PT Sans'
+
+ПОРЯДОК
+  1. выбери минимум видов (главный + вид слева/сверху при необходимости)
+  2. оси штрихпунктиром, выход за контур 6–15 px
+  3. видимый контур толстой; невидимый — штриховой, только если нужен
+  4. разрез: штриховка 45°; крепёж и валы вдоль оси НЕ штриховать
+  5. резьба: впадины тонкой линией на 0,85·d; граница резьбы — толстая
+  6. размеры: выносные ⊥ размерной, выход 3–6 px; число над линией
+  7. знаки ⌀ R М ×45°; десятичная запятая; «мм» не писать
+  8. проверь по чек-листу §12, исправь, выведи ТОЛЬКО финальный SVG
+
+ЗАПРЕЩЕНО
+  другие цвета и толщины · тени, градиенты, скругления · пересечение
+  размерных линий · текст поверх линий · единицы измерения у чисел`;
+    return {
+      copy,
+      codeDim, codeHatch, codePy, codePrompt,
+      notesOn: this.props.showAiNotes ?? true,
+      pyOn: this.props.showPython ?? true,
+    };
+  }
+}
+</script>
+</body>
+</html>

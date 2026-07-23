@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Болт М8 × 40 — Идеи Андрея</title>
+<meta name="description" content="Болт М8 × 40 по ГОСТ 7798-70. Сравнение форматов «нарисуй» (Рис. 51) и «начерти» (ЕСКД).">
+<link rel="stylesheet" href="../assets/css/main.css">
+<link rel="stylesheet" href="../assets/css/lock.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-corners"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">// IDEA · 02 · LIVE · ESKD-SVG applied</div>
+    <h1 class="h1-page">Болт <span class="accent">М8 × 40</span></h1>
+    <p class="subtitle">Два способа показать одну и ту же деталь: точная копия учебника или параметрический чертёж по ЕСКД.</p>
+
+    <div class="meta-bar">
+      <span class="meta-chip">ГОСТ 7798-70</span>
+      <span class="meta-chip">Крепёж</span>
+      <span class="meta-chip">d = 8 мм · l = 40 мм</span>
+      <span class="meta-chip">updated 10:48 EDT</span>
+    </div>
+  </div>
+</header>
+
+<nav class="quick-nav">
+  <a href="../index.html">← назад</a>
+  <a href="#switch">формат</a>
+  <a href="#comparison">сравнение</a>
+  <a href="https://github.com/AndreySog/andrei-ideas-site" target="_blank" rel="noopener">github ↗</a>
+</nav>
+
+<main>
+
+<section id="switch">
+  <h2><span class="num">01</span> Выбор формата</h2>
+
+  <div class="switcher" role="tablist">
+    <button data-view="view-na4isuy" class="active" data-key="1">① Нарисуй</button>
+    <button data-view="view-nacherti" data-key="2">② Начерти</button>
+  </div>
+  <span class="switcher-hint">клавиши <kbd>1</kbd> / <kbd>2</kbd></span>
+
+  <div id="view-na4isuy" class="view active">
+    <div class="stage">
+      <button class="stage-expand" aria-label="На весь экран">⛶ fullscreen</button>
+      <img src="../assets/img/bolt-m8-ris51.svg" alt="Болт М8 × 40 — нарисовано по образцу Рис. 51 из учебника">
+    </div>
+    <div class="note">
+      <strong>// нарисуй</strong> — это пиксельный трейс учебного образца. Все неровности линий, штрихи и подписи
+      один-в-один как в учебнике. Используется как наглядное пособие: открыл, показал, все «био-человеки» понимают.
+      <br><br>
+      <em>Не редактируется как параметрический чертёж.</em>
+    </div>
+  </div>
+
+  <div id="view-nacherti" class="view">
+    <div class="stage">
+      <button class="stage-expand" aria-label="На весь экран">⛶ fullscreen</button>
+      <img src="../assets/img/bolt-m8-nacherti.svg" alt="Болт М8 × 40 — параметрический чертёж по ЕСКД">
+    </div>
+    <div class="note">
+      <strong>// начерти</strong> — параметрический SVG: реальные <code>&lt;line&gt;</code>, <code>&lt;polygon&gt;</code>,
+      <code>&lt;circle&gt;</code>. Открывается в Illustrator / Inkscape / AutoCAD, редактируется.
+      Размеры d, l, l₀, h, S, D — переменные, можно подставить под любой типоразмер из ГОСТ 7798-70.
+      <br><br>
+      <em>Пригодно для производства.</em>
+    </div>
+  </div>
+</section>
+
+<section id="comparison">
+  <h2><span class="num">02</span> Сравнение</h2>
+  <div class="prose">
+    <p>Одна и та же деталь — болт М8 × 40 по ГОСТ 7798-70. Размеры стандартные: <strong>d = 8 мм</strong>, <strong>l = 40 мм</strong>, <strong>S = 13 мм</strong>, <strong>h = 5.3 мм</strong>, <strong>D ≈ 0.95·S</strong>.</p>
+
+    <p>Демонстрирует главный принцип визуализации для Андрея:</p>
+    <ul>
+      <li><strong>Нарисуй</strong> — когда нужна универсально понятная картинка (обучение, объяснение, шеринг).</li>
+      <li><strong>Начерти</strong> — когда нужны редактируемые размеры и соответствие ЕСКД (производство, КД).</li>
+    </ul>
+
+    <p>Исходники SVG обоих форматов лежат в <code>assets/img/</code> репозитория — можно скачать и использовать в своих задачах.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>Сайт собран Isaac'ом (Asimov-persona) ·
+    <a href="../index.html">← назад к проектам</a> ·
+    <a href="https://github.com/AndreySog/andrei-ideas-site" target="_blank" rel="noopener">github</a>
+    <span class="gate-badge" title="Защищено паролем (клиентский гейт)"><span class="dot"></span>protected</span>
+  </p>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/lock.js"></script>
+</body>
+</html>
