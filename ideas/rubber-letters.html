@@ -3,154 +3,111 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Антивандальные резиновые световые буквы для вывесок</title>
-<meta name="description" content="Изготовление белых резиновых световых букв для наружной и внутренней рекламы. Антивандальная конструкция, RGB-подсветка, разные типы резины под задачу.">
-<link rel="stylesheet" href="../assets/css/main.css">
-<link rel="stylesheet" href="../assets/css/lock.css">
+<title>Резиновые световые буквы для вывесок | Антивандальная наружная реклама</title>
+<meta name="description" content="Изготовление антивандальных резиновых световых букв для фасадных вывесок, интерьерной рекламы, логотипов и объёмных арт-объектов.">
 <style>
-  .product-hero { padding: 72px 24px 42px; text-align: left; }
-  .product-hero .hero-inner { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr); gap: 40px; align-items: center; }
-  .eyebrow { font-family: var(--mono); color: var(--accent); letter-spacing: .14em; text-transform: uppercase; font-size: .78rem; margin-bottom: 18px; }
-  .product-hero h1 { text-align: left; font-size: clamp(2.1rem, 5vw, 4.4rem); }
-  .lead { color: var(--text-dim); font-size: 1.12rem; max-width: 720px; }
-  .cta-row { display:flex; flex-wrap:wrap; gap: 12px; margin-top: 28px; }
-  .btn { display:inline-flex; align-items:center; justify-content:center; padding: 12px 18px; border-radius: 10px; border: 1px solid var(--line-strong); font-family: var(--mono); font-size:.88rem; }
-  .btn-primary { color:#061018; background: var(--accent); box-shadow: 0 0 26px var(--accent-glow); font-weight: 700; }
-  .btn-secondary { color: var(--text); background: var(--bg-card); }
-  .letter-demo { position: relative; min-height: 390px; border: 1px solid var(--line-strong); border-radius: 18px; overflow: hidden; background: radial-gradient(circle at 50% 35%, rgba(76,201,240,.22), transparent 28%), linear-gradient(145deg, #0b1119, #090b10); box-shadow: inset 0 0 60px rgba(255,255,255,.04); }
-  .letter-demo::before { content:""; position:absolute; inset:0; background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px); background-size: 28px 28px; }
-  .rubber-word { position:absolute; inset: 40px 24px auto; text-align:center; font-family: var(--mono); font-size: clamp(4rem, 11vw, 8.8rem); font-weight:900; letter-spacing: -.10em; color:#f3f6f7; text-shadow: 0 0 12px #fff, 0 0 28px #4cc9f0, 0 0 58px #8a2be2; filter: drop-shadow(0 22px 22px rgba(0,0,0,.55)); animation: hue 9s linear infinite; }
-  @keyframes hue { from { filter: hue-rotate(0deg) drop-shadow(0 22px 22px rgba(0,0,0,.55)); } to { filter: hue-rotate(360deg) drop-shadow(0 22px 22px rgba(0,0,0,.55)); } }
-  .impact-tags { position:absolute; left:22px; right:22px; bottom:22px; display:grid; grid-template-columns: repeat(3, 1fr); gap:10px; }
-  .impact-tags span { background: rgba(7,9,13,.72); border:1px solid var(--line-strong); border-radius: 10px; padding: 10px; color: var(--text-dim); font-family: var(--mono); font-size:.78rem; text-align:center; }
-  .section-kicker { color: var(--accent-2); font-family: var(--mono); font-size:.8rem; letter-spacing:.12em; text-transform:uppercase; }
-  .feature-grid { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:18px; }
-  .feature-card, .process-card, .use-card { background: var(--bg-card); border:1px solid var(--line); border-radius: 14px; padding: 22px; }
-  .feature-card h3, .process-card h3, .use-card h3 { margin-top:0; font-family: var(--mono); color: var(--text); }
-  .feature-card p, .process-card p, .use-card p { color: var(--text-dim); margin-bottom:0; }
-  .specs { display:grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-  .spec-list { list-style:none; padding:0; margin:0; }
-  .spec-list li { padding: 13px 0; border-bottom:1px solid var(--line); display:flex; gap:14px; justify-content:space-between; }
-  .spec-list strong { color: var(--text); }
-  .spec-list span { color: var(--text-dim); text-align:right; }
-  .process { counter-reset: step; display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap:14px; }
-  .process-card::before { counter-increment: step; content: "0" counter(step); display:inline-flex; color: var(--accent); font-family: var(--mono); margin-bottom: 12px; }
-  .cta-panel { border:1px solid var(--accent); border-radius:18px; padding:34px; background: linear-gradient(135deg, rgba(76,201,240,.14), rgba(244,140,46,.08)); display:grid; grid-template-columns: 1fr auto; gap:24px; align-items:center; }
-  .note { color: var(--text-mute); font-size:.9rem; }
-  @media (max-width: 900px) { .product-hero .hero-inner, .specs, .cta-panel { grid-template-columns:1fr; } .feature-grid, .process { grid-template-columns:1fr 1fr; } }
-  @media (max-width: 620px) { .feature-grid, .process, .impact-tags { grid-template-columns:1fr; } .letter-demo { min-height:420px; } .rubber-word { font-size:4.4rem; } }
+:root{
+  --ink:#17120f; --muted:#6f625b; --cream:#fff7ec; --paper:#fffdf8; --orange:#ff6a00; --red:#e9281b; --yellow:#ffd64d; --blue:#1b8cff; --green:#16a34a; --line:#eadfce; --shadow:0 20px 60px rgba(74,42,20,.16); --radius:28px;
+  --sans:Inter, Arial, Helvetica, sans-serif; --display:Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.55} a{color:inherit;text-decoration:none}.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.topbar{position:sticky;top:0;z-index:20;background:rgba(255,247,236,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.topbar .wrap{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.02em}.brand-mark{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--orange),var(--red));box-shadow:0 8px 24px rgba(255,106,0,.34);display:grid;place-items:center;color:#fff;font-weight:1000}.nav{display:flex;gap:18px;color:var(--muted);font-size:.95rem}.phone{padding:10px 16px;border-radius:999px;background:var(--ink);color:white;font-weight:800;box-shadow:0 10px 24px rgba(0,0,0,.14)}
+.hero{position:relative;overflow:hidden;background:radial-gradient(circle at 75% 28%, rgba(255,214,77,.70), transparent 28%),linear-gradient(135deg,#fffaf1 0%,#fff2da 48%,#ffe3c2 100%);border-bottom:1px solid var(--line)}.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(23,18,15,.045) 1px,transparent 1px),linear-gradient(rgba(23,18,15,.045) 1px,transparent 1px);background-size:34px 34px;mask-image:linear-gradient(to bottom,#000,transparent 85%)}.hero-grid{position:relative;display:grid;grid-template-columns:1fr .92fr;gap:46px;align-items:center;padding:76px 22px 86px}.eyebrow{display:inline-flex;gap:8px;align-items:center;padding:8px 13px;border-radius:999px;background:white;border:1px solid var(--line);font-weight:900;color:var(--red);text-transform:uppercase;font-size:.78rem;letter-spacing:.08em;box-shadow:0 8px 20px rgba(74,42,20,.08)}h1{margin:20px 0 16px;font-family:var(--display);font-size:clamp(3.1rem,8vw,7.2rem);line-height:.88;letter-spacing:.01em;text-transform:uppercase}.hero h1 span{color:var(--orange);text-shadow:3px 3px 0 var(--yellow)}.lead{max-width:680px;font-size:1.22rem;color:#3e332d}.proofs{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0}.proofs span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:10px 14px;font-weight:800;box-shadow:0 8px 20px rgba(74,42,20,.08)}.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:15px 22px;font-weight:1000;border:2px solid var(--ink);transition:.18s transform,.18s box-shadow}.btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(0,0,0,.14)}.btn-primary{background:var(--orange);color:#fff;box-shadow:5px 5px 0 var(--ink)}.btn-secondary{background:#fff;color:var(--ink)}
+.signboard{position:relative;min-height:430px;border-radius:38px;background:linear-gradient(180deg,#19100c,#080605);box-shadow:var(--shadow),inset 0 0 0 12px #2a1b13,inset 0 0 0 15px #f6b233;overflow:hidden;border:5px solid #fff}.signboard::before{content:"";position:absolute;inset:18px;border:2px dashed rgba(255,255,255,.18);border-radius:24px}.big-sign{position:absolute;left:26px;right:26px;top:80px;text-align:center;font-family:var(--display);font-size:clamp(4.6rem,12vw,8.7rem);letter-spacing:.01em;color:#fff;text-shadow:0 0 8px #fff,0 0 24px #ff6a00,0 0 60px #ff1744,0 0 100px #1b8cff;animation:neon 6s linear infinite}.subtitle-sign{position:absolute;left:34px;right:34px;top:245px;text-align:center;color:#ffe7bd;font-weight:900;letter-spacing:.15em;text-transform:uppercase}.shop-window{position:absolute;left:0;right:0;bottom:0;height:86px;background:linear-gradient(90deg,#ff6a00,#e9281b,#1b8cff);display:grid;grid-template-columns:repeat(3,1fr);align-items:center;color:#fff;font-weight:1000;text-align:center;text-transform:uppercase;font-size:.82rem}.shop-window span{border-right:1px solid rgba(255,255,255,.35);padding:0 8px}.shop-window span:last-child{border:0}@keyframes neon{0%,100%{filter:hue-rotate(0deg)}50%{filter:hue-rotate(120deg)}}
+section{padding:76px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:28px}.kicker{font-weight:1000;color:var(--orange);text-transform:uppercase;letter-spacing:.09em;font-size:.82rem}h2{margin:6px 0 0;font-size:clamp(2rem,4vw,3.7rem);line-height:1;font-family:var(--display);text-transform:uppercase}.section-head p{max-width:420px;color:var(--muted);margin:0}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:0 12px 34px rgba(74,42,20,.08)}.icon{width:56px;height:56px;border-radius:18px;background:linear-gradient(135deg,var(--yellow),var(--orange));display:grid;place-items:center;font-size:1.65rem;margin-bottom:18px;box-shadow:0 8px 20px rgba(255,106,0,.22)}.card h3{margin:0 0 10px;font-size:1.25rem}.card p{margin:0;color:var(--muted)}
+.strip{background:var(--ink);color:white;transform:skewY(-1.2deg);margin:30px 0}.strip .wrap{transform:skewY(1.2deg);padding-top:34px;padding-bottom:34px;display:flex;gap:28px;align-items:center;justify-content:space-around;flex-wrap:wrap}.strip strong{font-family:var(--display);font-size:clamp(2rem,5vw,4.2rem);color:var(--yellow);line-height:1}.strip span{color:#f7dfc7;font-weight:800}.materials{display:grid;grid-template-columns:.9fr 1.1fr;gap:22px}.material-list{display:grid;gap:12px}.material{display:flex;gap:14px;align-items:flex-start;background:white;border:1px solid var(--line);border-radius:22px;padding:18px}.dot{width:16px;height:16px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 6px rgba(255,106,0,.12);flex:0 0 auto;margin-top:5px}.material b{display:block;margin-bottom:4px}.material span{color:var(--muted)}.showcase{border-radius:var(--radius);background:linear-gradient(135deg,#fff,#fff0d6);border:1px solid var(--line);padding:28px;box-shadow:var(--shadow)}.showcase svg{width:100%;height:auto;display:block}.process{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:step}.step{background:#fff;border:1px solid var(--line);border-radius:24px;padding:24px}.step:before{counter-increment:step;content:"0" counter(step);font-family:var(--display);font-size:2.6rem;color:var(--orange);display:block;line-height:1}.step h3{margin:12px 0 8px}.step p{color:var(--muted);margin:0}.cta{padding:80px 0 96px}.cta-box{position:relative;overflow:hidden;border-radius:38px;background:linear-gradient(135deg,var(--orange),var(--red));color:#fff;padding:44px;box-shadow:var(--shadow);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}.cta-box h2{margin:0 0 10px;text-shadow:3px 3px 0 rgba(0,0,0,.22)}.cta-box p{margin:0;max-width:680px;color:#fff8ef}.cta-box .btn{background:white;color:var(--ink);border-color:white;box-shadow:5px 5px 0 rgba(0,0,0,.35)}.fineprint{margin-top:16px;color:#8c7c73;font-size:.92rem}footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);background:#fffaf1}.foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}.foot a{font-weight:900;color:var(--orange)}
+@media(max-width:920px){.hero-grid,.materials,.cta-box{grid-template-columns:1fr}.nav{display:none}.cards{grid-template-columns:1fr 1fr}.process{grid-template-columns:1fr 1fr}.section-head{display:block}.section-head p{margin-top:14px}.signboard{min-height:360px}.subtitle-sign{top:220px}}@media(max-width:620px){.topbar .wrap{height:auto;padding-top:12px;padding-bottom:12px;align-items:flex-start;flex-direction:column}.phone{width:100%;text-align:center}.cards,.process{grid-template-columns:1fr}.hero-grid{padding-top:48px}.shop-window{grid-template-columns:1fr;height:auto}.shop-window span{padding:10px;border-right:0;border-bottom:1px solid rgba(255,255,255,.35)}.big-sign{font-size:4.1rem;top:74px}.subtitle-sign{top:194px}.signboard{min-height:360px}.cta-box{padding:30px}}
 </style>
 </head>
 <body>
-<header class="hero product-hero">
-  <div class="hero-corners"></div>
-  <div class="hero-inner">
-    <div>
-      <div class="eyebrow">// наружная реклама · световые буквы · no glass</div>
-      <h1>Антивандальные резиновые буквы для вывесок</h1>
-      <p class="lead">Белые объёмные буквы из специальной резины с внутренней LED-подсветкой. Днём выглядят чисто и премиально, ночью могут светиться любым цветом — от фирменного белого до динамического RGB.</p>
-      <p class="lead">Главное ноу-хау: мягкий или усиленный резиновый корпус вместо хрупкого пластика и стекла. Такие буквы рассчитаны выдерживать удары, град, сосульки и жёсткую уличную эксплуатацию.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#request">Рассчитать вывеску</a>
-        <a class="btn btn-secondary" href="#features">Посмотреть преимущества</a>
-      </div>
-    </div>
-    <div class="letter-demo" aria-label="Демонстрация светящихся резиновых букв">
-      <div class="rubber-word">SIGN</div>
-      <div class="impact-tags">
-        <span>ударостойко</span>
-        <span>гибкая резина</span>
-        <span>любой цвет LED</span>
-      </div>
-    </div>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="brand-mark">R</span><span>Rubber Light Signs</span></a>
+    <nav class="nav"><a href="#why">Преимущества</a><a href="#materials">Материалы</a><a href="#formats">Форматы</a><a href="#order">Заказ</a></nav>
+    <a class="phone" href="#request">Получить расчёт</a>
   </div>
 </header>
 
-<nav class="quick-nav">
-  <a href="../index.html">← идеи</a>
-  <a href="#features">преимущества</a>
-  <a href="#materials">резина</a>
-  <a href="#uses">применение</a>
-  <a href="#request">заявка</a>
-</nav>
-
-<main>
-<section id="features">
-  <div class="section-kicker">01 · почему это сильнее обычной вывески</div>
-  <h2><span class="num">01</span> Антивандальная световая реклама</h2>
-  <div class="feature-grid">
-    <article class="feature-card"><h3>Не хрупкий акрил</h3><p>Корпус буквы не разбивается как стекло или тонкий пластик. При ударе резина гасит энергию и возвращается к форме.</p></article>
-    <article class="feature-card"><h3>Защита от улицы</h3><p>Конструкция рассчитана на град, наледь, сосульки, случайные удары и жёсткий городской монтаж.</p></article>
-    <article class="feature-card"><h3>Любой цвет свечения</h3><p>Белая резина работает как мягкий рассеиватель. LED-модули внутри дают белый, фирменный цвет или RGB-сценарии.</p></article>
-    <article class="feature-card"><h3>Мягкая безопасность</h3><p>Можно заказать очень мягкую резину для интерьеров, детских зон, выставок и мест, где важна травмобезопасность.</p></article>
-    <article class="feature-card"><h3>Индивидуальная жёсткость</h3><p>Материал подбирается под задачу: огнестойкий, мягкий, твёрдый, эластичный или растягивающийся.</p></article>
-    <article class="feature-card"><h3>Не только буквы</h3><p>Из той же технологии можно делать логотипы, барельефы, цветы, головы, персонажей и объёмные рекламные формы.</p></article>
-  </div>
-</section>
-
-<section id="materials">
-  <div class="section-kicker">02 · материал под задачу</div>
-  <h2><span class="num">02</span> Варианты резины</h2>
-  <div class="specs">
-    <div class="feature-card">
-      <h3>Что можно настроить</h3>
-      <ul class="spec-list">
-        <li><strong>Цвет корпуса</strong><span>белый базовый, под светорассеивание</span></li>
-        <li><strong>Подсветка</strong><span>LED / RGB / фирменный цвет</span></li>
-        <li><strong>Жёсткость</strong><span>мягкая, средняя, твёрдая</span></li>
-        <li><strong>Эластичность</strong><span>от упругой до тянущейся</span></li>
-        <li><strong>Огнестойкость</strong><span>по отдельному заказу</span></li>
-      </ul>
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">вывески · буквы · логотипы · RGB</div>
+        <h1>Резиновые <span>световые</span> буквы</h1>
+        <p class="lead">Новая технология для наружной и интерьерной рекламы: объёмные буквы из белой светорассеивающей резины с LED-подсветкой. Светятся любым цветом, выглядят ярко и не боятся грубой эксплуатации.</p>
+        <div class="proofs"><span>антивандальный корпус</span><span>для улицы и интерьера</span><span>мягкие или твёрдые</span></div>
+        <div class="cta-row"><a class="btn btn-primary" href="#request">Рассчитать вывеску</a><a class="btn btn-secondary" href="#formats">Что можно сделать</a></div>
+      </div>
+      <div class="signboard" aria-label="Световая вывеска из резиновых букв">
+        <div class="big-sign">SIGN</div>
+        <div class="subtitle-sign">soft rubber · hard impact</div>
+        <div class="shop-window"><span>не хрупкий акрил</span><span>любой цвет</span><span>фасад / интерьер</span></div>
+      </div>
     </div>
-    <div class="feature-card">
-      <h3>Как это продаём</h3>
-      <p>Это не просто «световые буквы». Это премиальная вывеска для мест, где обычная реклама быстро ломается: улица, фасад, ТЦ, входная группа, бар, магазин, детская зона, выставочный стенд.</p>
-      <p class="note">Юридически и рекламно лучше подтверждать экстремальные заявления протоколами испытаний. До них безопасная формула: «рассчитаны выдерживать сильные удары и уличные нагрузки».</p>
+  </section>
+
+  <section id="why">
+    <div class="wrap">
+      <div class="section-head"><div><div class="kicker">почему это продаётся</div><h2>Вывеска, которую сложно сломать</h2></div><p>Обычные световые буквы часто делают из акрила и пластика. Они красиво светятся, но трескаются от удара, града, льда или вандализма. Здесь корпус работает как амортизатор.</p></div>
+      <div class="cards">
+        <article class="card"><div class="icon">🛡️</div><h3>Антивандальная идея</h3><p>Резина принимает удар и гасит энергию. Формулируем честно: конструкция рассчитана на сильные механические нагрузки.</p></article>
+        <article class="card"><div class="icon">💡</div><h3>Яркая LED-подсветка</h3><p>Белый корпус рассеивает свет, а диоды внутри дают белый, фирменный цвет, динамику или RGB-сценарии.</p></article>
+        <article class="card"><div class="icon">🌨️</div><h3>Для тяжёлой улицы</h3><p>Фасады, входные группы, ТЦ, павильоны, бары и магазины: град, сосульки и случайные удары больше не выглядят как приговор.</p></article>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="uses">
-  <div class="section-kicker">03 · где применять</div>
-  <h2><span class="num">03</span> Форматы изделий</h2>
-  <div class="feature-grid">
-    <article class="use-card"><h3>Фасадные вывески</h3><p>Объёмные буквы для магазинов, кафе, салонов, пунктов выдачи и входных групп.</p></article>
-    <article class="use-card"><h3>Интерьерная реклама</h3><p>Мягкие световые логотипы для ресепшена, шоурума, офиса, фотозоны или сцены.</p></article>
-    <article class="use-card"><h3>Арт-объекты</h3><p>Барельефы, головы, цветы, персонажи, маскоты и любые объёмные формы по 3D-модели.</p></article>
-  </div>
-</section>
+  <div class="strip"><div class="wrap"><div><strong>24/7</strong><br><span>видимость бренда</span></div><div><strong>RGB</strong><br><span>любой цвет свечения</span></div><div><strong>3D</strong><br><span>буквы, логотипы, фигуры</span></div><div><strong>ANTI</strong><br><span>ударостойкая подача</span></div></div></div>
 
-<section id="process">
-  <div class="section-kicker">04 · производство</div>
-  <h2><span class="num">04</span> Как делается заказ</h2>
-  <div class="process">
-    <article class="process-card"><h3>Макет</h3><p>Берём логотип, шрифт, размеры, место монтажа и требования к цвету свечения.</p></article>
-    <article class="process-card"><h3>Материал</h3><p>Подбираем тип резины: мягкая, твёрдая, эластичная, огнестойкая или комбинированная.</p></article>
-    <article class="process-card"><h3>Изготовление</h3><p>Формируем корпус, интегрируем LED-подсветку, проверяем равномерность свечения.</p></article>
-    <article class="process-card"><h3>Монтаж</h3><p>Готовим крепёж и электрику под фасад или интерьер, даём рекомендации по эксплуатации.</p></article>
-  </div>
-</section>
-
-<section id="request">
-  <div class="cta-panel">
-    <div>
-      <div class="section-kicker">05 · заявка</div>
-      <h2>Нужна вывеска, которую сложно разбить?</h2>
-      <p>Пришлите слово/логотип, примерный размер, город монтажа и где будет стоять вывеска: улица или помещение. В ответ можно подготовить концепт, оценку материала и варианты свечения.</p>
+  <section id="materials">
+    <div class="wrap materials">
+      <div>
+        <div class="kicker">материал под объект</div><h2>Резина не одна — её выбирают под задачу</h2>
+        <p class="lead">Можно сделать буквы жёсткими для фасада, мягкими для интерьера, тянущимися для эффектного демонстрационного образца или огнестойкими по отдельному заказу.</p>
+      </div>
+      <div class="material-list">
+        <div class="material"><i class="dot"></i><div><b>Белая светорассеивающая</b><span>чистый дневной вид и ровное ночное свечение.</span></div></div>
+        <div class="material"><i class="dot"></i><div><b>Мягкая / очень мягкая</b><span>для интерьеров, фотозон, детских пространств и безопасных арт-объектов.</span></div></div>
+        <div class="material"><i class="dot"></i><div><b>Твёрдая / усиленная</b><span>для фасадов, улицы и мест с высоким риском повреждений.</span></div></div>
+        <div class="material"><i class="dot"></i><div><b>Эластичная и тянущаяся</b><span>можно показать прямо руками: материал мнётся, тянется и возвращается.</span></div></div>
+        <div class="material"><i class="dot"></i><div><b>Огнестойкая версия</b><span>подбирается отдельно, когда объект требует повышенных норм безопасности.</span></div></div>
+      </div>
     </div>
-    <a class="btn btn-primary" href="mailto:example@example.com?subject=Резиновые%20световые%20буквы">Запросить расчёт</a>
-  </div>
-</section>
+  </section>
+
+  <section id="formats">
+    <div class="wrap">
+      <div class="section-head"><div><div class="kicker">не только буквы</div><h2>От вывески до объёмного персонажа</h2></div><p>Технология подходит для любых объёмных форм, где нужен свет, мягкий корпус и заметная рекламная подача.</p></div>
+      <div class="cards">
+        <article class="card"><div class="icon">🏪</div><h3>Фасадные вывески</h3><p>Названия магазинов, кафе, салонов, пунктов выдачи, входных групп и павильонов.</p></article>
+        <article class="card"><div class="icon">🏢</div><h3>Интерьерные логотипы</h3><p>Ресепшн, шоурум, офис, сцена, выставочный стенд, фотозона.</p></article>
+        <article class="card"><div class="icon">🗿</div><h3>Барельефы и фигуры</h3><p>Голова человека, цветок, маскот, персонаж, декоративная форма — хоть светящийся Азимов, если пришлёт фото.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="order">
+    <div class="wrap">
+      <div class="section-head"><div><div class="kicker">как заказать</div><h2>Понятный путь от идеи до вывески</h2></div></div>
+      <div class="process">
+        <article class="step"><h3>Макет</h3><p>Логотип, слово, размер, шрифт, цвет свечения и место установки.</p></article>
+        <article class="step"><h3>Материал</h3><p>Выбор жёсткости, эластичности, уличной или интерьерной версии.</p></article>
+        <article class="step"><h3>Производство</h3><p>Корпус из резины, LED-модули, равномерность света, крепление.</p></article>
+        <article class="step"><h3>Монтаж</h3><p>Подготовка к фасаду или интерьеру, подключение и рекомендации.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="request">
+    <div class="wrap">
+      <div class="cta-box">
+        <div><h2>Нужна вывеска, которая выделяется?</h2><p>Пришлите слово или логотип, примерный размер и место установки. Можно быстро подготовить концепт, материал и оценку стоимости.</p></div>
+        <a class="btn" href="mailto:example@example.com?subject=Резиновые%20световые%20буквы">Запросить расчёт</a>
+      </div>
+      <p class="fineprint">Примечание: заявления про пулю, кирпич и экстремальные нагрузки лучше подтверждать испытаниями. До сертификатов безопаснее писать «рассчитано на сильные удары и уличные нагрузки».</p>
+    </div>
+  </section>
 </main>
-
-<footer>
-  <div class="links">
-    <a href="../index.html">на главную</a>
-    <span class="gate-badge"><span class="dot"></span>prototype page</span>
-  </div>
-  <div>антивандальные резиновые световые буквы · концепт лендинга</div>
-</footer>
-<script src="../assets/js/main.js"></script>
-<script src="../assets/js/lock.js"></script>
+<footer><div class="wrap foot"><span>Rubber Light Signs · антивандальные световые буквы</span><a href="https://github.com/AndreySog/andrei-rubber-letters">GitHub repo</a></div></footer>
 </body>
 </html>
